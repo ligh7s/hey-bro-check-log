@@ -1,0 +1,5 @@
+.*
+!.gitignore
+!.flake8
+__pycache__
+test_logs

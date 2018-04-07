@@ -1,0 +1,40 @@
+"""This module contains the dictionary of log deductions, their messages, and their deduction scores."""
+
+DEDUCTIONS = {
+    'Read mode': {
+        'XLD': ['Ripper mode was not XLD Secure Ripper', 100],
+        'Default': ['Read mode was not secure', 20]
+    },
+    'Accurate stream': ['Accurate stream was not used', 20],
+    'Audio cache': ['Audio cache not defeated', 10],
+    'C2 pointers': ['C2 pointers were used', 20],
+    'Drive offset': ['Incorrect read offset for drive', 5],
+    'Combined offset': ['Combined read/write offset cannot be verified', 5],
+    'Zero offset': ['The drive could not be found in the database; however, an offset of 0 is rarely correct', 5],
+    'Fill missing offset samples with silence': ['Missing offset samples not filled up with silence', 5],
+    'Deleting silent blocks': ['Deletes leading and trailing silent blocks', 5],
+    'Null samples': ['Null samples were not used in CRC calculations', 1],
+    'Gap handling': ['Gaps were not analyzed and appended', 10],
+    'ID3 tags': ['ID3 tags added to FLAC files', 1],
+    'AccurateRip': ['AccurateRip was not enabled', 5],
+    'Test & Copy': ['Test & Copy was not used', 20],
+    'Range rip': ['Range rip detected', 20],
+    'EAC 0.95': ['EAC 0.95 log or older', 30],
+    'HTOA not ripped twice': ['HOTA was not ripped twice', 10],
+    'Improper HTOA extraction': ['HTOA was improperly extracted', 10],
+    'CRC mismatch on HTOA extraction': ['CRC mismatch on HTOA extraction', 10],
+    'Aborted copy': ['Aborted copy', 100],
+    'CRC mismatch': ['CRC mismatch', 30],
+    'Timing error': ['Timing error', 30],
+    'Suspicious position': ['Suspicious position', 20],
+    'Missing sample': ['Missing sample', 20],
+    'Track gain': ['Track gain was not turned on', 1],
+    'Read error': ['Read error', 1],
+    'Damaged sector count': ['Damaged sector', 1],
+    'Checksum': ['No checksum', 15],
+    'Virtual drive': ['Virtual drive was used', 100],
+    'CD-R': ['CD-R detected; not a pressed CD', 0],
+    'AccurateRip discrepancies': ['AccurateRip discrepancies; rip may contain silent errors', None],
+    'Normalization': ['Destructive normalization used', 100],
+    'Compression offset': ['Ripped with compression offset', 100]
+}
