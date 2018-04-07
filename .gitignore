@@ -1,5 +1,6 @@
 .*
 !.gitignore
 !.flake8
+!.travis.yml
 __pycache__
 test_logs
