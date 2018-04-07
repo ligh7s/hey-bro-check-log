@@ -16,15 +16,15 @@ in CD ripping logs.
 
 ## Running CLI
 
-    usage: run.py [-h] [-t] [-m] log
+    usage: run.py [-h] [-t] [-m] [-s] log
 
-    Tool to analyze, translate, and score a CD Rip Log. Supports EAC
-    and XLD.
+    Tool to analyze, translate, and score a CD Rip Log.
 
     positional arguments:
-      log              log file to check.
+      log               log file to check.
 
     optional arguments:
-      -h, --help       show this help message and exit
-      -t, --translate  translate a foreign log to English
-      -m, --markup     print the marked up version of the log after analyzing
+      -h, --help        show this help message and exit
+      -t, --translate   translate a foreign log to English
+      -m, --markup      print the marked up version of the log after analyzing
+      -s, --score-only  Only print the score of the log.

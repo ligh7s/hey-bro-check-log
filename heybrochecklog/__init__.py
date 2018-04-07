@@ -20,18 +20,19 @@ def runner(args):
 
 def score_(args, log_file):
     log = score_log(log_file)
-    output = format_score(args.log, log, args.markup)
-    try:
-        print(output, '\n')
-    except UnicodeEncodeError as error:
-        print('Cannot encode logpath: {}'.format(error))
+    if args.score_only:
+        print(log['score'])
+    else:
+        try:
+            print(format_score(args.log, log, args.markup))
+        except UnicodeEncodeError as error:
+            print('Cannot encode logpath: {}'.format(error))
 
 
 def translate_(args, log_file):
     log = translate_log(log_file)
-    output = format_translation(args.log, log)
     try:
-        print(output)
+        print(format_translation(args.log, log))
     except UnicodeEncodeError as error:
         print('Cannot encode logpath: {}'.format(error))
 
