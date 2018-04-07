@@ -137,7 +137,7 @@ def analyze_htoa(logs, htoa_logs):
 
 def patch_htoa(logs, htoa_logs):
     """Adjust the HTOA deductions based on the defragmented log."""
-    htoa_ripped = bool([log for log in htoa_logs if log.htoa_ripped])
+    htoa_ripped = any(log for log in htoa_logs if log.htoa_ripped)
 
     if htoa_ripped and logs[0].has_deduction('HTOA detected'):
         logs[0].remove_deduction('HTOA detected not extracted')

@@ -10,7 +10,7 @@ from heybrochecklog.logfile import LogFile
 
 # Lines which should be regexed instead of `x in y`.
 REGEXES = [
-    ['russian', 1309]
+    ['russian', '1309'],
 ]
 
 
@@ -62,7 +62,7 @@ def sub_english(log):
     for key, value in foreign.items():
         if [log.language, key] not in REGEXES:  # Some are regex and shouldn't be escaped.
             value = re.escape(value)
-        foreign[key] = re.compile(value)
+        foreign[key] = re.compile(value, flags=re.IGNORECASE)
 
     # Iterate through each line and find/replace each string.
     new_log = []

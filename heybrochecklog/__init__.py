@@ -12,10 +12,10 @@ def runner(args):
     log_file = Path(args.log)
     if not log_file.is_file():
         print('{} does not exist.'.format(args.log))
-    elif args.log:
-        score_(args, log_file)
     elif args.translate:
         translate_(args, log_file)
+    elif args.log:
+        score_(args, log_file)
 
 
 def score_(args, log_file):

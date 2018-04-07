@@ -20,8 +20,8 @@
         "95 settings": {
             "Read mode": "Sécurisé",
             "C2 pointers": "SANS C2",
-            "Accurate stream": ", flux précis",
-            "Audio cache": ", cache désactivé"
+            "Accurate stream": ", [Ff]lux précis",
+            "Audio cache": ", [Cc]ache désactivé"
         },
         "95 full line settings": {
             "Fill missing offset samples with silence": "Remplacer les samples manquants par du silence",
@@ -29,7 +29,7 @@
         },
         "95 offset settings": {
             "Drive offset": "Correction offset écriture",
-            "Combined offset": "Correction offset combiné lecture/écriture"
+            "Combined offset": "Correction [Oo]ffset combiné lecture/écriture"
         },
         "proper settings": {
             "Read mode": "Vérouiller",
@@ -49,7 +49,7 @@
         "track settings": {
             "filename": "Nom fichier",
             "pregap": "Durée PREGAP",
-            "peak": "Niveau max",
+            "peak": "Niveau [Mm]ax",
             "test crc": "Test CRC",
             "copy crc": "(?:Copie CRC|CRC)"
         },
