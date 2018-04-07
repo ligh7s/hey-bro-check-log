@@ -1,12 +1,14 @@
 # hey-bro-check-log
 
+[![Build Status](https://travis-ci.org/ligh7s/hey-bro-check-log.svg?branch=master)](https://travis-ci.org/ligh7s/hey-bro-check-log)
+
 A python tool which analyzes and verifies good ripping practices and potential inaccuracies
 in CD ripping logs.
 
 ## Support
 
 * Supports checking EAC and XLD logs.
-* Matches deductions on Redacted (minus stupid aggregrate ones)
+* Matches deductions on Redacted (minus stupid aggregate ones)
 * Supports combined EAC logs
 * Detects other irregularities and special occurrences in the rip
   * Data tracks
