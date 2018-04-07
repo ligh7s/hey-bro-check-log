@@ -20,7 +20,7 @@ DEDUCTIONS = {
     'Test & Copy': ['Test & Copy was not used', 20],
     'Range rip': ['Range rip detected', 20],
     'EAC 0.95': ['EAC 0.95 log or older', 30],
-    'HTOA not ripped twice': ['HOTA was not ripped twice', 10],
+    'HTOA not ripped twice': ['HTOA was not ripped twice', 10],
     'Improper HTOA extraction': ['HTOA was improperly extracted', 10],
     'CRC mismatch on HTOA extraction': ['CRC mismatch on HTOA extraction', 10],
     'Aborted copy': ['Aborted copy', 100],
