@@ -21,7 +21,10 @@ def runner(args):
 def score_(args, log_file):
     log = score_log(log_file)
     if args.score_only:
-        print(log['score'])
+        if not log['unrecognized']:
+            print(log['score'])
+        else:
+            print('Log is unrecognized: {}'.format(log['unrecognized']))
     else:
         try:
             print(format_score(args.log, log, args.markup))
