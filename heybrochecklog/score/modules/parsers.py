@@ -74,8 +74,12 @@ def parse_checksum(log, regex, imp_version, deduc_line):
             break
     else:  # If checksum not found
         # Compare version numbers to see if Log is older than checksums.
-        versions = [v[0] for v in VERSIONS[log.ripper]]
-        if versions.index(log.version) <= versions.index(imp_version):
+        for version in VERSIONS[log.ripper]:
+            if version[0] == log.version:
+                log_version = version
+            if version[0] == imp_version:
+                imp_version = version
+        if VERSIONS[log.ripper].index(log_version) <= VERSIONS[log.ripper].index(imp_version):
             log.add_deduction('Checksum')
         else:
             log.add_deduction(deduc_line + ' (no checksum)')
