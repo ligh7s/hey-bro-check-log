@@ -79,7 +79,7 @@ class LogFile:
             'contents': ''.join(self.full_contents)
         }
 
-    def add_deduction(self, deduction, multiplier=1, track=None):
+    def add_deduction(self, deduction, multiplier=1, track=None, extra_phrase=None):
         """Add a deduction to the log file."""
         name, score = self._get_deduction_from_dict(deduction)
         if score:
@@ -91,6 +91,8 @@ class LogFile:
             name += ' ({} occurrences)'.format(multiplier)
         if score:
             name += ' (-{} points)'.format(score)
+        if extra_phrase:
+            name += ' ({})'.format(extra_phrase)
 
         self.deductions[deduction] = [name, score]
 
