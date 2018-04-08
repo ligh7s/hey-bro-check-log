@@ -7,7 +7,6 @@ def analyze_accuraterip(log):
     """Analyze the AccurateRip results in the log."""
     if log.accuraterip:
         for ar_result in log.accuraterip:
-            print(ar_result)
             if (ar_result[0] != log.accuraterip[0][0]
                     and (ar_result[1] is not None and log.accuraterip[0][1] is not None)
                     and (int(ar_result[1]) >= 5 or int(log.accuraterip[0][1]) >= 5)):
