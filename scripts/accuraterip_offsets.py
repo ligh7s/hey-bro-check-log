@@ -34,7 +34,8 @@ def process_scrape(text_):
                        r'<td align="center" bgcolor="#(?:FCFCFC|F4F4F4)">'
                        r'<font face="Arial" size="2">(.*)</font></td>')
     for match in regex.finditer(text_):
-        add_to_db(match.group(1), match.group(2))
+        if 'Purged' not in match.group(2):
+            add_to_db(match.group(1), match.group(2))
 
 
 def add_to_db(name, offset):
