@@ -25,7 +25,7 @@ def get_log_encoding(log_file):
         return 'utf-8-sig'
     else:
         result = chardet.detect(raw)
-        return result['encoding']
+        return result['encoding'] if result['confidence'] > 0.7 else 'utf-8-sig'
 
 
 def get_language_data(log):
