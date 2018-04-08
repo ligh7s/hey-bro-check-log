@@ -8,9 +8,13 @@ from heybrochecklog.score import eac, xld, eac95
 
 
 def score_log(log_file):
-    contents = get_log_contents(log_file)
-    log = LogFile(contents)
-    log = score_wrapper(log)
+    try:
+        contents = get_log_contents(log_file)
+        log = LogFile(contents)
+        log = score_wrapper(log)
+    except UnicodeDecodeError:
+        log = LogFile('')
+        log.unrecognized = 'Could not decode log file.'
     return log.to_dict()
 
 
@@ -20,7 +24,7 @@ def score_log_from_contents(contents):
     try:
         log = score_wrapper(log)
     except UnicodeDecodeError:
-        log.unrecognized = 'Could not decode log file'
+        log.unrecognized = 'Could not decode log file.'
     return log.to_dict()
 
 

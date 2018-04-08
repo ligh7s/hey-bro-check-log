@@ -16,9 +16,12 @@ REGEXES = [
 
 def translate_log(log_file):
     """Initialize and capture all logs."""
-    contents = get_log_contents(log_file)
-    log = LogFile(contents)
-    return translate_wrapper(log)
+    try:
+        contents = get_log_contents(log_file)
+        log = LogFile(contents)
+        return translate_wrapper(log)
+    except UnicodeDecodeError:
+        return {'unrecognized': 'Could not decode log'}
 
 
 def translate_log_from_contents(contents):

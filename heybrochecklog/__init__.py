@@ -45,7 +45,7 @@ def format_score(logpath, log, markup):
     output = []
     output.append('\nLog: ' + logpath)
     if log['unrecognized']:
-        output.append('\nLog is unrecognized: {}.'.format(log['unrecognized']))
+        output.append('\nLog is unrecognized: {}'.format(log['unrecognized']))
     else:
         if log['flagged']:
             output.append('\nLog is flagged: {}'.format(log['flagged']))
