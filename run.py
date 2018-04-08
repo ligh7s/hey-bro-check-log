@@ -9,7 +9,7 @@ def parse_args():
     description = 'Tool to analyze, translate, and score a CD Rip Log.'
 
     parser = argparse.ArgumentParser(description=description)
-    parser.add_argument('log', help='log file to check.')
+    parser.add_argument('log', help='log file to check.', nargs='+')
     parser.add_argument('-t', '--translate', help='translate a foreign log to English', action='store_true')
     parser.add_argument('-m', '--markup', help='print the marked up version of the log after analyzing',
                         action='store_true')

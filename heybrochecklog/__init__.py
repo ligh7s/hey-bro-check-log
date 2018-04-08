@@ -9,16 +9,17 @@ from heybrochecklog.translate import translate_log  # noqa: E402
 
 def runner(args):
     """Main function to handle command line usage of the heybrochecklog package."""
-    log_file = Path(args.log)
-    if not log_file.is_file():
-        print('{} does not exist.'.format(args.log))
-    elif args.translate:
-        translate_(args, log_file)
-    elif args.log:
-        score_(args, log_file)
+    for log_path in args.log:
+        log_file = Path(log_path)
+        if not log_file.is_file():
+            print('{} does not exist.'.format(log_path))
+        elif args.translate:
+            translate_(args, log_file, log_path)
+        elif args.log:
+            score_(args, log_file, log_path)
 
 
-def score_(args, log_file):
+def score_(args, log_file, log_path):
     log = score_log(log_file)
     if args.score_only:
         if not log['unrecognized']:
@@ -27,15 +28,15 @@ def score_(args, log_file):
             print('Log is unrecognized: {}'.format(log['unrecognized']))
     else:
         try:
-            print(format_score(args.log, log, args.markup))
+            print(format_score(log_path, log, args.markup))
         except UnicodeEncodeError as error:
             print('Cannot encode logpath: {}'.format(error))
 
 
-def translate_(args, log_file):
+def translate_(args, log_file, log_path):
     log = translate_log(log_file)
     try:
-        print(format_translation(args.log, log))
+        print(format_translation(log_path, log))
     except UnicodeEncodeError as error:
         print('Cannot encode logpath: {}'.format(error))
 
