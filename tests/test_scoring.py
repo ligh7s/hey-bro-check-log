@@ -58,6 +58,7 @@ from heybrochecklog.score import score_log
         ('xld-ripping-error.log', {'Track 16: Damaged sector (724 occurrences) (-10 points)',
                                    'CRC mismatch (-30 points)'}),
         ('xldrr-vbox.log', {'Range rip detected (-20 points)'}),
+        ('inconsistent-accuraterip.log', {'AccurateRip discrepancies; rip may contain silent errors'}),
     ])
 def test_scoring(filename, deductions):
     log_path = os.path.join(os.path.dirname(__file__), 'logs', filename)

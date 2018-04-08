@@ -31,7 +31,7 @@
     },
     "accuraterip": {
         "match": "->Accurately ripped!? \\((?:[v12,+]+ )?confidence ([0-9\\/+]+)\\)",
-        "no result": "->Track not present in AccurateRip database"
+        "no match": "->Track not present in AccurateRip database"
     },
     "footer": "End of status report",
     "checksum": "-----BEGIN XLD SIGNATURE-----"
