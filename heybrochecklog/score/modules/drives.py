@@ -10,8 +10,11 @@ from heybrochecklog import UnrecognizedException
 
 def eval_offset(log, offset):
     """Validate the offset used by the ripped drive."""
-    if not offset.isdigit():
+    if not re.match('-?[0-9]+', offset):
         raise UnrecognizedException('Could not parse drive offset.')
+
+    if not offset.startswith('-') and offset != '0':
+        offset = '+' + offset
 
     if check_for_virtual_drives(log):
         log.add_deduction('Virtual drive')
@@ -30,9 +33,9 @@ def eval_offset(log, offset):
         log.unindexed_drive = True
         return
 
-    offsets = {re.sub(r'[^0-9]', '', row[0]) for row in results}
+    offsets = {row[0] for row in results}
     if offset not in offsets:
-        log.add_deduction('Drive offset')
+        log.add_deduction('Drive offset', *offsets)
 
 
 def check_for_virtual_drives(log):

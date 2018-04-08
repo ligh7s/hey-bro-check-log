@@ -58,6 +58,7 @@ LOGS = [
     ('xldrr-vbox.log', {'Range rip detected (-20 points)'}),
     ('inconsistent-accuraterip.log', {'AccurateRip discrepancies; rip may contain silent errors'}),
     ('perf-hunid.log', set()),
+    ('negative-offset.log', {'EAC <1.0 (no checksum)'}),
 ]
 
 
