@@ -277,7 +277,11 @@ def style_95_read_mode(line, patterns):
     # Very hacky, is finding a better way right now worth the time?
     # I'm already sick of HTML markup!
     split_line = line.split(':', 1)
-    parts = split_line[1].split(' ', 1)
+
+    read_mode = split_line[0].rstrip()
+    line = line.replace(read_mode, '<span class="log5">{}</span>'.format(read_mode), 1)
+
+    parts = split_line[1].lstrip().split(' ', 1)
     parts[1:] = [part.strip() for part in parts[1].split(',')]
     num = 0
     for setting in patterns['95 settings'].values():

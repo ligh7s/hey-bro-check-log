@@ -2,7 +2,7 @@
 <span class="log4">Four Tet / Rounds</span>
 
 <span class="log5">Used drive  </span>: <span class="badish">TEAC    CD-W524E   Adapter: 1  ID: 1 (not found in database)</span>
-<span class="good"></span>Read mode   : <span class="good">Secure with NO C2</span>, <span class="good">accurate stream</span>, <span class="bad">NO disable cache</span>
+<span class="log5">Read mode</span>   : <span class="good">Secure</span> <span class="good">with NO C2</span>, <span class="good">accurate stream</span>, <span class="bad">NO disable cache</span>
 <span class="log5">Read offset correction </span>: <span class="good">685</span>
 <span class="log5">Overread into Lead-In and Lead-Out </span>: <span class="log4">No</span>
 
