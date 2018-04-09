@@ -286,7 +286,8 @@ def style_95_read_mode(line, patterns):
     parts = split_line[1].lstrip().split(' ', 1)
     parts[1:] = [part.strip() for part in parts[1].split(',')]
     num = 0
-    for setting in patterns['95 settings'].values():
+    p = patterns['95 settings']
+    for setting in [p['Read mode'], p['C2 pointers'], p['Accurate stream'], p['Audio cache']]:
         if num == len(parts):
             break
         class_ = 'good' if setting in line else 'bad'
