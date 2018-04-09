@@ -24,6 +24,8 @@ LOGS = [
         'Range rip detected (-20 points)'}),
     ('bad-chardet-no-checksum.log', {
         'No checksum (-15 points)'}),
+    ('cdr-multi-filename.log', {
+        'CD-R detected; not a pressed CD'}),
 ]
 
 

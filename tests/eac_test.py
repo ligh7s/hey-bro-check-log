@@ -39,6 +39,9 @@ LOGS = [
         'AccurateRip discrepancies; rip may contain silent errors'}),
     ('negative-offset.log', {
         'EAC <1.0 (no checksum)'}),
+    ('data-track.log', {
+        'EAC <1.0 (no checksum)',
+        'Data track detected'}),
 ]
 
 
