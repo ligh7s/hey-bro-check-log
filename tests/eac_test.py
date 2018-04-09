@@ -49,3 +49,18 @@ def test_scoring(filename, deductions):
     log_file = Path(log_path)
     log = score_log(log_file)
     assert deductions == {d[0] for d in log['deductions']}
+
+
+@pytest.mark.parametrize(
+    'filename', [log_tuple[0] for log_tuple in LOGS])
+def test_markup(filename):
+    log_path = os.path.join(os.path.dirname(__file__), 'logs', 'EAC', filename)
+    log_file = Path(log_path)
+    log = score_log(log_file)
+
+    markup_path = os.path.join(os.path.dirname(__file__), 'logs', 'EAC',
+                               'Markup', '{}.markup'.format(filename))
+    with open(markup_path, 'r') as markup_file:
+        markup_contents = markup_file.read()
+
+    assert log['contents'] == markup_contents
