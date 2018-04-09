@@ -50,7 +50,7 @@ X Lossless Decoder version <span class="log1">20130407</span> (<span class="log1
     <span class="log4">CRC32 hash (skip zero)   :</span> <span class="log3">1DF305BC</span>
     <span class="log4">AccurateRip v1 signature :</span> <span class="log3">930EC284</span>
     <span class="log4">AccurateRip v2 signature :</span> <span class="log3">E6B5F33B</span>
-        -&gt;Track not present in AccurateRip database.
+        <span class="badish">-&gt;Track not present in AccurateRip database.</span>
     <span class="log4">Statistics</span>
         <span class="log4">Read error                           :</span> <span class="good">0</span>
         <span class="log4">Jitter error (maybe fixed)           :</span> <span class="good">0</span>
@@ -67,7 +67,7 @@ X Lossless Decoder version <span class="log1">20130407</span> (<span class="log1
     <span class="log4">CRC32 hash (skip zero)   :</span> <span class="log3">8102DD2B</span>
     <span class="log4">AccurateRip v1 signature :</span> <span class="log3">78F31D8A</span>
     <span class="log4">AccurateRip v2 signature :</span> <span class="log3">A07FBB60</span>
-        -&gt;Track not present in AccurateRip database.
+        <span class="badish">-&gt;Track not present in AccurateRip database.</span>
     <span class="log4">Statistics</span>
         <span class="log4">Read error                           :</span> <span class="good">0</span>
         <span class="log4">Jitter error (maybe fixed)           :</span> <span class="good">0</span>
@@ -85,7 +85,7 @@ X Lossless Decoder version <span class="log1">20130407</span> (<span class="log1
     <span class="log4">CRC32 hash (skip zero)   :</span> <span class="log3">08B5F4FF</span>
     <span class="log4">AccurateRip v1 signature :</span> <span class="log3">71FD22E4</span>
     <span class="log4">AccurateRip v2 signature :</span> <span class="log3">3F4A0DF4</span>
-        -&gt;Track not present in AccurateRip database.
+        <span class="badish">-&gt;Track not present in AccurateRip database.</span>
     <span class="log4">Statistics</span>
         <span class="log4">Read error                           :</span> <span class="good">0</span>
         <span class="log4">Jitter error (maybe fixed)           :</span> <span class="good">0</span>
@@ -103,7 +103,7 @@ X Lossless Decoder version <span class="log1">20130407</span> (<span class="log1
     <span class="log4">CRC32 hash (skip zero)   :</span> <span class="log3">D660C676</span>
     <span class="log4">AccurateRip v1 signature :</span> <span class="log3">C912E0AC</span>
     <span class="log4">AccurateRip v2 signature :</span> <span class="log3">E13EAADE</span>
-        -&gt;Track not present in AccurateRip database.
+        <span class="badish">-&gt;Track not present in AccurateRip database.</span>
     <span class="log4">Statistics</span>
         <span class="log4">Read error                           :</span> <span class="good">0</span>
         <span class="log4">Jitter error (maybe fixed)           :</span> <span class="good">0</span>
@@ -120,7 +120,7 @@ X Lossless Decoder version <span class="log1">20130407</span> (<span class="log1
     <span class="log4">CRC32 hash (skip zero)   :</span> <span class="log3">FAA49D6F</span>
     <span class="log4">AccurateRip v1 signature :</span> <span class="log3">DC1D64D0</span>
     <span class="log4">AccurateRip v2 signature :</span> <span class="log3">7634FB13</span>
-        -&gt;Track not present in AccurateRip database.
+        <span class="badish">-&gt;Track not present in AccurateRip database.</span>
     <span class="log4">Statistics</span>
         <span class="log4">Read error                           :</span> <span class="good">0</span>
         <span class="log4">Jitter error (maybe fixed)           :</span> <span class="good">0</span>
@@ -138,7 +138,7 @@ X Lossless Decoder version <span class="log1">20130407</span> (<span class="log1
     <span class="log4">CRC32 hash (skip zero)   :</span> <span class="log3">C9C2EF6F</span>
     <span class="log4">AccurateRip v1 signature :</span> <span class="log3">79B3DADB</span>
     <span class="log4">AccurateRip v2 signature :</span> <span class="log3">2340AFCF</span>
-        -&gt;Track not present in AccurateRip database.
+        <span class="badish">-&gt;Track not present in AccurateRip database.</span>
     <span class="log4">Statistics</span>
         <span class="log4">Read error                           :</span> <span class="good">0</span>
         <span class="log4">Jitter error (maybe fixed)           :</span> <span class="good">0</span>
@@ -155,7 +155,7 @@ X Lossless Decoder version <span class="log1">20130407</span> (<span class="log1
     <span class="log4">CRC32 hash (skip zero)   :</span> <span class="log3">A89C4F12</span>
     <span class="log4">AccurateRip v1 signature :</span> <span class="log3">114012BF</span>
     <span class="log4">AccurateRip v2 signature :</span> <span class="log3">F8EFC435</span>
-        -&gt;Track not present in AccurateRip database.
+        <span class="badish">-&gt;Track not present in AccurateRip database.</span>
     <span class="log4">Statistics</span>
         <span class="log4">Read error                           :</span> <span class="good">0</span>
         <span class="log4">Jitter error (maybe fixed)           :</span> <span class="good">0</span>
@@ -172,7 +172,7 @@ X Lossless Decoder version <span class="log1">20130407</span> (<span class="log1
     <span class="log4">CRC32 hash (skip zero)   :</span> <span class="log3">BD6FD96C</span>
     <span class="log4">AccurateRip v1 signature :</span> <span class="log3">F6B03378</span>
     <span class="log4">AccurateRip v2 signature :</span> <span class="log3">FFBC803F</span>
-        -&gt;Track not present in AccurateRip database.
+        <span class="badish">-&gt;Track not present in AccurateRip database.</span>
     <span class="log4">Statistics</span>
         <span class="log4">Read error                           :</span> <span class="good">0</span>
         <span class="log4">Jitter error (maybe fixed)           :</span> <span class="good">0</span>
@@ -190,7 +190,7 @@ X Lossless Decoder version <span class="log1">20130407</span> (<span class="log1
     <span class="log4">CRC32 hash (skip zero)   :</span> <span class="log3">A9E82FB6</span>
     <span class="log4">AccurateRip v1 signature :</span> <span class="log3">AD583C0C</span>
     <span class="log4">AccurateRip v2 signature :</span> <span class="log3">EBC38276</span>
-        -&gt;Track not present in AccurateRip database.
+        <span class="badish">-&gt;Track not present in AccurateRip database.</span>
     <span class="log4">Statistics</span>
         <span class="log4">Read error                           :</span> <span class="good">0</span>
         <span class="log4">Jitter error (maybe fixed)           :</span> <span class="good">0</span>

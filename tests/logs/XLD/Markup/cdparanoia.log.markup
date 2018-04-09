@@ -34,7 +34,7 @@ X Lossless Decoder version <span class="log1">20090320</span> (<span class="log1
     <span class="log4">CRC32 hash             :</span> <span class="good">6753193C</span>
     <span class="log4">CRC32 hash (skip zero) :</span> <span class="log3">FB110822</span>
     <span class="log4">AccurateRip signature  :</span> <span class="log3">B1D50FB7</span>
-        -&gt;Accurately ripped! (confidence 1)
+        <span class="good">-&gt;Accurately ripped! (confidence 1)</span>
     <span class="log4">Statistics</span>
         <span class="log4">Read error                           :</span> <span class="good">0</span>
         <span class="log4">Skipped (treated as error)           :</span> <span class="good">0</span>
@@ -52,7 +52,7 @@ X Lossless Decoder version <span class="log1">20090320</span> (<span class="log1
     <span class="log4">CRC32 hash             :</span> <span class="good">9CC834A9</span>
     <span class="log4">CRC32 hash (skip zero) :</span> <span class="log3">A311B87C</span>
     <span class="log4">AccurateRip signature  :</span> <span class="log3">BFD0591D</span>
-        -&gt;Accurately ripped! (confidence 1)
+        <span class="good">-&gt;Accurately ripped! (confidence 1)</span>
     <span class="log4">Statistics</span>
         <span class="log4">Read error                           :</span> <span class="good">0</span>
         <span class="log4">Skipped (treated as error)           :</span> <span class="good">0</span>
@@ -70,7 +70,7 @@ X Lossless Decoder version <span class="log1">20090320</span> (<span class="log1
     <span class="log4">CRC32 hash             :</span> <span class="good">2C4D534C</span>
     <span class="log4">CRC32 hash (skip zero) :</span> <span class="log3">E5175733</span>
     <span class="log4">AccurateRip signature  :</span> <span class="log3">7B609EE7</span>
-        -&gt;Accurately ripped! (confidence 1)
+        <span class="good">-&gt;Accurately ripped! (confidence 1)</span>
     <span class="log4">Statistics</span>
         <span class="log4">Read error                           :</span> <span class="good">0</span>
         <span class="log4">Skipped (treated as error)           :</span> <span class="good">0</span>
@@ -88,7 +88,7 @@ X Lossless Decoder version <span class="log1">20090320</span> (<span class="log1
     <span class="log4">CRC32 hash             :</span> <span class="good">BB270521</span>
     <span class="log4">CRC32 hash (skip zero) :</span> <span class="log3">542603F4</span>
     <span class="log4">AccurateRip signature  :</span> <span class="log3">FC96437C</span>
-        -&gt;Accurately ripped! (confidence 1)
+        <span class="good">-&gt;Accurately ripped! (confidence 1)</span>
     <span class="log4">Statistics</span>
         <span class="log4">Read error                           :</span> <span class="good">0</span>
         <span class="log4">Skipped (treated as error)           :</span> <span class="good">0</span>
@@ -106,7 +106,7 @@ X Lossless Decoder version <span class="log1">20090320</span> (<span class="log1
     <span class="log4">CRC32 hash             :</span> <span class="good">BBF90090</span>
     <span class="log4">CRC32 hash (skip zero) :</span> <span class="log3">049DAA94</span>
     <span class="log4">AccurateRip signature  :</span> <span class="log3">873FF51D</span>
-        -&gt;Accurately ripped! (confidence 1)
+        <span class="good">-&gt;Accurately ripped! (confidence 1)</span>
     <span class="log4">Statistics</span>
         <span class="log4">Read error                           :</span> <span class="good">0</span>
         <span class="log4">Skipped (treated as error)           :</span> <span class="good">0</span>
@@ -124,7 +124,7 @@ X Lossless Decoder version <span class="log1">20090320</span> (<span class="log1
     <span class="log4">CRC32 hash             :</span> <span class="good">E595D578</span>
     <span class="log4">CRC32 hash (skip zero) :</span> <span class="log3">2C5A34A3</span>
     <span class="log4">AccurateRip signature  :</span> <span class="log3">9E38E6DE</span>
-        -&gt;Accurately ripped! (confidence 1)
+        <span class="good">-&gt;Accurately ripped! (confidence 1)</span>
     <span class="log4">Statistics</span>
         <span class="log4">Read error                           :</span> <span class="good">0</span>
         <span class="log4">Skipped (treated as error)           :</span> <span class="good">0</span>
@@ -142,7 +142,7 @@ X Lossless Decoder version <span class="log1">20090320</span> (<span class="log1
     <span class="log4">CRC32 hash             :</span> <span class="good">FF0E7DAD</span>
     <span class="log4">CRC32 hash (skip zero) :</span> <span class="log3">8E985271</span>
     <span class="log4">AccurateRip signature  :</span> <span class="log3">E839C730</span>
-        -&gt;Accurately ripped! (confidence 1)
+        <span class="good">-&gt;Accurately ripped! (confidence 1)</span>
     <span class="log4">Statistics</span>
         <span class="log4">Read error                           :</span> <span class="good">0</span>
         <span class="log4">Skipped (treated as error)           :</span> <span class="good">0</span>
@@ -160,7 +160,7 @@ X Lossless Decoder version <span class="log1">20090320</span> (<span class="log1
     <span class="log4">CRC32 hash             :</span> <span class="good">3F1A4030</span>
     <span class="log4">CRC32 hash (skip zero) :</span> <span class="log3">967CC2CA</span>
     <span class="log4">AccurateRip signature  :</span> <span class="log3">DC1CDE99</span>
-        -&gt;Accurately ripped! (confidence 1)
+        <span class="good">-&gt;Accurately ripped! (confidence 1)</span>
     <span class="log4">Statistics</span>
         <span class="log4">Read error                           :</span> <span class="good">0</span>
         <span class="log4">Skipped (treated as error)           :</span> <span class="good">0</span>
@@ -178,7 +178,7 @@ X Lossless Decoder version <span class="log1">20090320</span> (<span class="log1
     <span class="log4">CRC32 hash             :</span> <span class="good">903D79E7</span>
     <span class="log4">CRC32 hash (skip zero) :</span> <span class="log3">2C1005B4</span>
     <span class="log4">AccurateRip signature  :</span> <span class="log3">9B15CDF1</span>
-        -&gt;Accurately ripped! (confidence 1)
+        <span class="good">-&gt;Accurately ripped! (confidence 1)</span>
     <span class="log4">Statistics</span>
         <span class="log4">Read error                           :</span> <span class="good">0</span>
         <span class="log4">Skipped (treated as error)           :</span> <span class="good">0</span>
@@ -196,7 +196,7 @@ X Lossless Decoder version <span class="log1">20090320</span> (<span class="log1
     <span class="log4">CRC32 hash             :</span> <span class="good">6F30BF8E</span>
     <span class="log4">CRC32 hash (skip zero) :</span> <span class="log3">86ECA8E4</span>
     <span class="log4">AccurateRip signature  :</span> <span class="log3">AD6E1659</span>
-        -&gt;Accurately ripped! (confidence 1)
+        <span class="good">-&gt;Accurately ripped! (confidence 1)</span>
     <span class="log4">Statistics</span>
         <span class="log4">Read error                           :</span> <span class="good">0</span>
         <span class="log4">Skipped (treated as error)           :</span> <span class="good">0</span>

@@ -3,6 +3,7 @@ when marking up log files.
 """
 
 import re
+import html
 
 
 def eac_track_matches(translation):
@@ -28,9 +29,9 @@ def xld_track_matches():
     return {
         'full_line': [
             ['log4', 'Statistics'],
-            ['good', '->Accurately ripped'],
-            ['badish', '->Track not present in AccurateRip database'],
-            ['bad', '->Rip may not be accurate'],
+            ['good', '-&gt;Accurately ripped'],
+            ['badish', '-&gt;Track not present in AccurateRip database'],
+            ['bad', '-&gt;Rip may not be accurate'],
             ['bad', 'List of damaged sector positions +:'],
             ['badish', r'\(\d+\) \d{2}:\d{2}:\d{2}'],
             ['log3', r'\/.+\.(?:[Ff][Ll][Aa][Cc]|[Ww][Aa][Vv]|[Mm][Pp]3|[Aa][Aa][Cc])']
@@ -114,12 +115,12 @@ def xld_ar_summary():
     return {
         'good': [
             r'Track \d+ : OK.+',
-            '->All tracks accurately ripped.*'
+            html.escape('-&gt;All tracks accurately ripped.*')
         ],
         'badish': [
             r'Track \d+ : NG.+',
             'Disc not found in AccurateRip DB',
-            r'->\d+ tracks? accurately ripped, \d+ tracks? not'
+            r'-&gt;\d+ tracks? accurately ripped, \d+ tracks? not'
         ],
         'log4 log5': ['AccurateRip Summary']
     }
@@ -133,7 +134,7 @@ def generate_match_type(translation, source, matches=None, prepend='', append=''
             matches[match_type] = []
         for line_id in source[match_type]:
             match = prepend + re_paren(translation[line_id]) + append
-            matches[match_type].append(match)
+            matches[match_type].append(html.escape(match))
 
     return matches
 

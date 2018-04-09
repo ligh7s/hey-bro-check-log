@@ -45,7 +45,7 @@ X Lossless Decoder version <span class="log1">20170729</span> (<span class="log1
     <span class="log4">CRC32 hash (skip zero)   :</span> <span class="log3">FA6488BC</span>
     <span class="log4">AccurateRip v1 signature :</span> <span class="log3">7F906C67</span>
     <span class="log4">AccurateRip v2 signature :</span> <span class="log3">DCC30E8E</span>
-        -&gt;Accurately ripped (v1, confidence 1/2)
+        <span class="good">-&gt;Accurately ripped (v1, confidence 1/2)</span>
     <span class="log4">Statistics</span>
         <span class="log4">Read error                           :</span> <span class="good">0</span>
         <span class="log4">Jitter error (maybe fixed)           :</span> <span class="good">0</span>

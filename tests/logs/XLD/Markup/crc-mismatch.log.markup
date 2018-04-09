@@ -41,7 +41,7 @@ X Lossless Decoder version <span class="log1">20170729</span> (<span class="log1
     <span class="badish">Track 09 : NG (total 9 submissions)</span>
     <span class="good">Track 10 : OK (v1+v2, confidence 9/9)</span>
     <span class="good">Track 11 : OK (v1+v2, confidence 9/9)</span>
-        -&gt;10 tracks accurately ripped, 1 track not
+        <span class="badish">-&gt;10 tracks accurately ripped, 1 track not</span>
 
 <span class="log5">All Tracks</span>
     <span class="log4">Album gain               :</span> <span class="log3">-4.76 dB</span>
@@ -63,7 +63,7 @@ X Lossless Decoder version <span class="log1">20170729</span> (<span class="log1
     <span class="log4">CRC32 hash (skip zero)   :</span> <span class="log3">D6689D68</span>
     <span class="log4">AccurateRip v1 signature :</span> <span class="log3">994BB782</span>
     <span class="log4">AccurateRip v2 signature :</span> <span class="log3">67D387BC</span>
-        -&gt;Accurately ripped (v2, confidence 7/7)
+        <span class="good">-&gt;Accurately ripped (v2, confidence 7/7)</span>
     <span class="log4">Statistics</span>
         <span class="log4">Read error                           :</span> <span class="good">0</span>
         <span class="log4">Jitter error (maybe fixed)           :</span> <span class="good">0</span>
@@ -81,7 +81,7 @@ X Lossless Decoder version <span class="log1">20170729</span> (<span class="log1
     <span class="log4">CRC32 hash (skip zero)   :</span> <span class="log3">C81ADE37</span>
     <span class="log4">AccurateRip v1 signature :</span> <span class="log3">3E3CA281</span>
     <span class="log4">AccurateRip v2 signature :</span> <span class="log3">93743C0E</span>
-        -&gt;Accurately ripped (v1+v2, confidence 2+7/9)
+        <span class="good">-&gt;Accurately ripped (v1+v2, confidence 2+7/9)</span>
     <span class="log4">Statistics</span>
         <span class="log4">Read error                           :</span> <span class="good">0</span>
         <span class="log4">Jitter error (maybe fixed)           :</span> <span class="good">0</span>
@@ -99,7 +99,7 @@ X Lossless Decoder version <span class="log1">20170729</span> (<span class="log1
     <span class="log4">CRC32 hash (skip zero)   :</span> <span class="log3">C71990E8</span>
     <span class="log4">AccurateRip v1 signature :</span> <span class="log3">7018156B</span>
     <span class="log4">AccurateRip v2 signature :</span> <span class="log3">0A268EFE</span>
-        -&gt;Accurately ripped (v1+v2, confidence 2+7/9)
+        <span class="good">-&gt;Accurately ripped (v1+v2, confidence 2+7/9)</span>
     <span class="log4">Statistics</span>
         <span class="log4">Read error                           :</span> <span class="good">0</span>
         <span class="log4">Jitter error (maybe fixed)           :</span> <span class="good">0</span>
@@ -117,7 +117,7 @@ X Lossless Decoder version <span class="log1">20170729</span> (<span class="log1
     <span class="log4">CRC32 hash (skip zero)   :</span> <span class="log3">1762676C</span>
     <span class="log4">AccurateRip v1 signature :</span> <span class="log3">B553CF4A</span>
     <span class="log4">AccurateRip v2 signature :</span> <span class="log3">B6145D16</span>
-        -&gt;Accurately ripped (v1+v2, confidence 2+7/9)
+        <span class="good">-&gt;Accurately ripped (v1+v2, confidence 2+7/9)</span>
     <span class="log4">Statistics</span>
         <span class="log4">Read error                           :</span> <span class="good">0</span>
         <span class="log4">Jitter error (maybe fixed)           :</span> <span class="good">0</span>
@@ -135,7 +135,7 @@ X Lossless Decoder version <span class="log1">20170729</span> (<span class="log1
     <span class="log4">CRC32 hash (skip zero)   :</span> <span class="log3">DB6D2144</span>
     <span class="log4">AccurateRip v1 signature :</span> <span class="log3">7C6DCB17</span>
     <span class="log4">AccurateRip v2 signature :</span> <span class="log3">198262B3</span>
-        -&gt;Accurately ripped (v1+v2, confidence 2+7/9)
+        <span class="good">-&gt;Accurately ripped (v1+v2, confidence 2+7/9)</span>
     <span class="log4">Statistics</span>
         <span class="log4">Read error                           :</span> <span class="good">0</span>
         <span class="log4">Jitter error (maybe fixed)           :</span> <span class="good">0</span>
@@ -153,7 +153,7 @@ X Lossless Decoder version <span class="log1">20170729</span> (<span class="log1
     <span class="log4">CRC32 hash (skip zero)   :</span> <span class="log3">8174A46E</span>
     <span class="log4">AccurateRip v1 signature :</span> <span class="log3">58695420</span>
     <span class="log4">AccurateRip v2 signature :</span> <span class="log3">0CE896CB</span>
-        -&gt;Accurately ripped (v1+v2, confidence 2+7/9)
+        <span class="good">-&gt;Accurately ripped (v1+v2, confidence 2+7/9)</span>
     <span class="log4">Statistics</span>
         <span class="log4">Read error                           :</span> <span class="good">0</span>
         <span class="log4">Jitter error (maybe fixed)           :</span> <span class="good">0</span>
@@ -171,7 +171,7 @@ X Lossless Decoder version <span class="log1">20170729</span> (<span class="log1
     <span class="log4">CRC32 hash (skip zero)   :</span> <span class="log3">2E242B85</span>
     <span class="log4">AccurateRip v1 signature :</span> <span class="log3">DD7674C3</span>
     <span class="log4">AccurateRip v2 signature :</span> <span class="log3">4D6E8AF3</span>
-        -&gt;Accurately ripped (v1+v2, confidence 2+7/9)
+        <span class="good">-&gt;Accurately ripped (v1+v2, confidence 2+7/9)</span>
     <span class="log4">Statistics</span>
         <span class="log4">Read error                           :</span> <span class="good">0</span>
         <span class="log4">Jitter error (maybe fixed)           :</span> <span class="good">0</span>
@@ -189,7 +189,7 @@ X Lossless Decoder version <span class="log1">20170729</span> (<span class="log1
     <span class="log4">CRC32 hash (skip zero)   :</span> <span class="log3">8CD4C01B</span>
     <span class="log4">AccurateRip v1 signature :</span> <span class="log3">760BEFCA</span>
     <span class="log4">AccurateRip v2 signature :</span> <span class="log3">FD8A8236</span>
-        -&gt;Accurately ripped (v1+v2, confidence 2+7/9)
+        <span class="good">-&gt;Accurately ripped (v1+v2, confidence 2+7/9)</span>
     <span class="log4">Statistics</span>
         <span class="log4">Read error                           :</span> <span class="good">0</span>
         <span class="log4">Jitter error (maybe fixed)           :</span> <span class="good">0</span>
@@ -204,11 +204,11 @@ X Lossless Decoder version <span class="log1">20170729</span> (<span class="log1
     <span class="log4">Peak                     :</span> <span class="log3">0.992004</span>
     <span class="log4">CRC32 hash (test run)    :</span> <span class="bad">606C50E6</span>
     <span class="log4">CRC32 hash               :</span> <span class="bad">5076879F</span>
-        -&gt;Rip may not be accurate.
+        <span class="bad">-&gt;Rip may not be accurate.</span>
     <span class="log4">CRC32 hash (skip zero)   :</span> <span class="log3">3D1B5124</span>
     <span class="log4">AccurateRip v1 signature :</span> <span class="log3">FA7E69B0</span>
     <span class="log4">AccurateRip v2 signature :</span> <span class="log3">48F27154</span>
-        -&gt;Rip may not be accurate (total 9 submissions).
+        <span class="bad">-&gt;Rip may not be accurate (total 9 submissions).</span>
     <span class="log4">Statistics</span>
         <span class="log4">Read error                           :</span> <span class="good">0</span>
         <span class="log4">Jitter error (maybe fixed)           :</span> <span class="good">0</span>
@@ -226,7 +226,7 @@ X Lossless Decoder version <span class="log1">20170729</span> (<span class="log1
     <span class="log4">CRC32 hash (skip zero)   :</span> <span class="log3">BB61A7FC</span>
     <span class="log4">AccurateRip v1 signature :</span> <span class="log3">64985F59</span>
     <span class="log4">AccurateRip v2 signature :</span> <span class="log3">A1878DE6</span>
-        -&gt;Accurately ripped (v1+v2, confidence 2+7/9)
+        <span class="good">-&gt;Accurately ripped (v1+v2, confidence 2+7/9)</span>
     <span class="log4">Statistics</span>
         <span class="log4">Read error                           :</span> <span class="good">0</span>
         <span class="log4">Jitter error (maybe fixed)           :</span> <span class="good">0</span>
@@ -244,7 +244,7 @@ X Lossless Decoder version <span class="log1">20170729</span> (<span class="log1
     <span class="log4">CRC32 hash (skip zero)   :</span> <span class="log3">D81130D3</span>
     <span class="log4">AccurateRip v1 signature :</span> <span class="log3">5AC65FA9</span>
     <span class="log4">AccurateRip v2 signature :</span> <span class="log3">863444BC</span>
-        -&gt;Accurately ripped (v1+v2, confidence 2+7/9)
+        <span class="good">-&gt;Accurately ripped (v1+v2, confidence 2+7/9)</span>
     <span class="log4">Statistics</span>
         <span class="log4">Read error                           :</span> <span class="good">0</span>
         <span class="log4">Jitter error (maybe fixed)           :</span> <span class="good">0</span>

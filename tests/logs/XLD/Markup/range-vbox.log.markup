@@ -50,7 +50,7 @@ X Lossless Decoder version <span class="log1">20170729</span> (<span class="log1
     <span class="log4">CRC32 hash (skip zero)   :</span> <span class="log3">8DAB64A0</span>
     <span class="log4">AccurateRip v1 signature :</span> <span class="log3">AB11CF3F</span>
     <span class="log4">AccurateRip v2 signature :</span> <span class="log3">0021EFA8</span>
-        -&gt;Accurately ripped (v1+v2, confidence 5+6/11)
+        <span class="good">-&gt;Accurately ripped (v1+v2, confidence 5+6/11)</span>
     <span class="log4">Statistics</span>
         <span class="log4">Read error                           :</span> <span class="good">0</span>
         <span class="log4">Jitter error (maybe fixed)           :</span> <span class="good">0</span>
@@ -66,7 +66,7 @@ X Lossless Decoder version <span class="log1">20170729</span> (<span class="log1
     <span class="log4">CRC32 hash (skip zero)   :</span> <span class="log3">15D163C0</span>
     <span class="log4">AccurateRip v1 signature :</span> <span class="log3">D627D9F5</span>
     <span class="log4">AccurateRip v2 signature :</span> <span class="log3">689E1528</span>
-        -&gt;Accurately ripped (v1+v2, confidence 3+6/9)
+        <span class="good">-&gt;Accurately ripped (v1+v2, confidence 3+6/9)</span>
     <span class="log4">Statistics</span>
         <span class="log4">Read error                           :</span> <span class="good">0</span>
         <span class="log4">Jitter error (maybe fixed)           :</span> <span class="good">0</span>
@@ -82,7 +82,7 @@ X Lossless Decoder version <span class="log1">20170729</span> (<span class="log1
     <span class="log4">CRC32 hash (skip zero)   :</span> <span class="log3">73FCDD4A</span>
     <span class="log4">AccurateRip v1 signature :</span> <span class="log3">A61A5EA8</span>
     <span class="log4">AccurateRip v2 signature :</span> <span class="log3">7081171C</span>
-        -&gt;Accurately ripped (v1+v2, confidence 4+5/9)
+        <span class="good">-&gt;Accurately ripped (v1+v2, confidence 4+5/9)</span>
     <span class="log4">Statistics</span>
         <span class="log4">Read error                           :</span> <span class="good">0</span>
         <span class="log4">Jitter error (maybe fixed)           :</span> <span class="good">0</span>
