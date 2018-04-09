@@ -42,6 +42,9 @@ LOGS = [
     ('data-track.log', {
         'EAC <1.0 (no checksum)',
         'Data track detected'}),
+    ('burst.log', {
+        'Read mode was not secure (-20 points)',
+        'EAC <1.0 (no checksum)'}),
 ]
 
 

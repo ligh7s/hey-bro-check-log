@@ -274,8 +274,10 @@ def style_statistic(line, class_):
 
 def style_95_read_mode(line, patterns):
     """Style the EAC 95 read mode line."""
-    # Very hacky, is finding a better way right now worth the time?
-    # I'm already sick of HTML markup!
+    # Burst mode doesn't have multiple settings in one line
+    if ',' not in line:
+        return style_setting(line, 'bad')
+
     split_line = line.split(':', 1)
 
     read_mode = split_line[0].rstrip()

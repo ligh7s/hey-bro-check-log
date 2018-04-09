@@ -27,6 +27,16 @@ LOGS = [
         'EAC 0.95 log or older (-30 points)',
         'EAC <1.0 (no checksum)',
         'Gaps were not analyzed and appended (-10 points)'}),
+    ('burst.log', {
+        'The drive could not be found in the database; however, an offset of 0 is rarely correct (-5 points)',  # noqa E501
+        'Read mode was not secure (-20 points)',
+        'C2 pointers were used (-20 points)',
+        'Accurate stream was not used (-20 points)',
+        'Audio cache not defeated (-10 points)',
+        'Test & Copy was not used (-20 points)',
+        'EAC 0.95 log or older (-30 points)',
+        'EAC <1.0 (no checksum)',
+        'Gaps were not analyzed and appended (-10 points)'}),
 ]
 
 

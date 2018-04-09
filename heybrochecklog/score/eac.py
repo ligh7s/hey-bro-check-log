@@ -64,6 +64,17 @@ class EACChecker(LogChecker):
             if pattern in line:
                 log.add_deduction(sett)
 
+    def evaluate_unmatched_settings(self, log, settings):
+        """Override super to account for burst mode not having some settings."""
+        burst_no_exist = ['Accurate stream', 'Audio cache', 'C2 pointers']
+        if log.has_deduction('Read mode'):
+            if any(setting not in settings for setting in burst_no_exist):
+                raise UnrecognizedException('Invalid rip settings for a burst mode rip')
+            for setting in burst_no_exist:
+                del settings[setting]
+
+        super().evaluate_unmatched_settings(log, settings)
+
     def is_there_a_htoa(self, log):
         """Check rip for Hidden Track One Audio."""
         # 6 second minimum for HTOA per EAC standards
