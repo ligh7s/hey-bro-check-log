@@ -45,4 +45,4 @@ def determine_language(log):
             if re.match(line_starter, line):
                 return language
 
-    raise UnrecognizedException('Unrecognized/unsupported language.')
+    raise UnrecognizedException('Unrecognized/unsupported language')

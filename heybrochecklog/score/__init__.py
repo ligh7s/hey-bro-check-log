@@ -34,7 +34,7 @@ def score_wrapper(log):
     try:
         analyze_log(log)
     except UnrecognizedException as exception:
-        log.unrecognized = exception
+        log.unrecognized = str(exception)
         return log
 
     if log.ripper == 'EAC':

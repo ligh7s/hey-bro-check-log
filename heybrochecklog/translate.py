@@ -39,7 +39,7 @@ def translate_wrapper(log):
         analyze_log(log)
     except UnrecognizedException as exception:
         return {
-            'unrecognized': exception,
+            'unrecognized': str(exception),
             'log': ''.join(log.full_contents)
         }
 
