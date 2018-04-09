@@ -1,6 +1,7 @@
 """Mark up the log file with classes according to the regex."""
 
 import re
+import html
 from heybrochecklog.score.modules import parsers
 from heybrochecklog.markup.matches import (eac_track_matches, xld_track_matches, eac_footer_matches,
                                            xld_footer_matches, xld_ar_summary)
@@ -13,6 +14,8 @@ VERSIONS = {
 
 def markup(log, patterns, translation):
     """Mark up log files with highlighting for proper/improper settings."""
+    log.full_contents = [html.escape(line) for line in log.full_contents]
+
     header(log, translation)
     settings(log, patterns)
     toc(log)
