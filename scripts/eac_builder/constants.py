@@ -11,7 +11,7 @@ LINENUMBERS = [
     1309, 1310, 1320, 1321, 1322, 1323, 1324, 1325, 1328, 1329, 1330, 1331, 1332, 1333, 1334,
     1335, 1336, 1337, 1338, 1339, 1340, 1341, 1342, 1343, 1344, 2501, 4270, 4271, 4272, 81700,
     81701, 81702, 81703, 81704, 81705, 81706, 81707, 81708, 81709, 81710, 81711, 81712, 81713,
-    81714, 81715, 81716, 81717, 81718, 81719, 81720, 1000000
+    81714, 81715, 81716, 81717, 81718, 81719, 81720
 ]
 
 SAMPLEPATTERN = {
@@ -30,20 +30,7 @@ SAMPLEPATTERN = {
     },
     'bad settings': {
         'Normalization': 1266,
-        'Compression offset': 1262
-    },
-    '95 settings': {
-        'Read mode': None,
-        'C2 pointers': None,
-        'Accurate stream': None,
-        'Audio cache': None
-    },
-    '95 full line settings': {
-        'Fill missing offset samples with silence': 1264,
-        'Deleting silent blocks': 1265
-    },
-    '95 offset settings': {
-        'Drive offset': 1256,
+        'Compression offset': 1262,
         'Combined offset': 1255
     },
     'proper settings': {

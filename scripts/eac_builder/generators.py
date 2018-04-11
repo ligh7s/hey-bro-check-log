@@ -29,36 +29,13 @@ def regex_the_drive(translation):
     return used_drive
 
 
-def ninety_five_settings(patterns, translation, filename):
-    """Populate patterns dict with EAC95 settings."""
-    # This is going to be messy, with no guarantee of success.
-    perf_line = translation[1254]  # The line with optimal settings.
-
-    # Remove `Secure` from string.
-    secure, perf_line = perf_line.split(' ', 1)
-
-    # Split the rest of the line by commas.
-    rest_of_line = [',' + stri for stri in perf_line.split(',')]
-    rest_of_line[0] = rest_of_line[0].lstrip(',')
-
-    if len(rest_of_line) != 3:  # We're looking for two commas here.
-        print('Error: ({}) Failed to split EAC95 line. Please fill out manually.'.format(filename))
-        return
-
-    # Assign the split variables to the patterns dict.
-    patterns['95 settings']['Read mode'] = secure
-    patterns['95 settings']['C2 pointers'] = rest_of_line[0]
-    patterns['95 settings']['Accurate stream'] = rest_of_line[1]
-    patterns['95 settings']['Audio cache'] = rest_of_line[2]
-
-
 def htoa_crc_checksum_substitution(patterns, translation):
     """Generate the HTOA line, Copy CRC line."""
     sel_range = translation[1211]
     sectors = translation[1287]
     copycrc = translation[1272]
     crc = translation[1219]
-    checksum = translation[1325]
+    checksum = translation[1325] if 1325 in translation else 'Log checksum'
 
     patterns['htoa'] = r'{} \({} 0-([0-9]+)\)'.format(sel_range, sectors)
     patterns['track settings']['copy crc'] = '(?:{}|{})'.format(copycrc, crc)

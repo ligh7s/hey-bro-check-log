@@ -16,7 +16,8 @@ def test_translation(filename):
     log = translate_log(log_file)
 
     translated_path = os.path.join(
-        os.path.dirname(__file__), 'logs', 'translations', '{}.translated'.format(filename))
+        os.path.dirname(__file__), 'logs', 'translations', 'translated',
+        '{}.translated'.format(filename))
     with open(translated_path, 'r') as translated_file:
         translated_contents = translated_file.read()
 

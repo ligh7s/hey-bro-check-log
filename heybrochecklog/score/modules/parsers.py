@@ -1,7 +1,7 @@
 """This module contains functions which parse lines for data."""
 
 import re
-from resources.versions import VERSIONS
+from resources import VERSIONS
 from heybrochecklog import UnrecognizedException
 
 

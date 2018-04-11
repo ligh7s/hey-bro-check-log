@@ -1,7 +1,7 @@
 """This module contains the LogFile class, an encapsulation of log variables."""
 
 import re
-from resources.deductions import DEDUCTIONS
+from resources import DEDUCTIONS
 
 
 class LogFile:

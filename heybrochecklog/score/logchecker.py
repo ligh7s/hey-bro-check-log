@@ -4,7 +4,7 @@ more specific log checkers.
 
 import re
 
-from resources.versions import VERSIONS
+from resources import VERSIONS
 from heybrochecklog import UnrecognizedException
 from heybrochecklog.score.modules import parsers, validation, drives
 
@@ -119,7 +119,7 @@ class LogChecker:
 
     def analyze_tracks(self, log, track_settings, parse_errors, accuraterip=True):
         """Get track data for each track and check for errors."""
-        ar_patterns = self.patterns['accuraterip'].items()
+        ar_patterns = self.patterns['accuraterip'].items() if accuraterip else {}
         err_patterns = self.patterns['track errors'].items()
 
         for i, index in enumerate(log.track_indices):

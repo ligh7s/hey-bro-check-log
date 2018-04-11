@@ -3,7 +3,7 @@
 
 import re
 from heybrochecklog import UnrecognizedException
-from resources.eac_rip_lines import RIPLINES
+from resources import EAC_RIPLINES
 
 
 def analyze_log(log):
@@ -27,7 +27,7 @@ def get_ripper(contents):
     else:
         # Unfortunately, not all EAC <=0.95 logs are English, so a compiled multi-language ripper
         # regex pattern is necessary.
-        re_95 = re.compile('|'.join(list(RIPLINES.values())))
+        re_95 = re.compile('|'.join(list(EAC_RIPLINES.values())))
         if re_95.match(contents[0]):
             return 'EAC95'
         else:
@@ -41,7 +41,7 @@ def determine_language(log):
 
     useful_contents = [re.sub(r'\s+', ' ', l.rstrip()) for l in log.contents if l.strip()]
     for line in useful_contents[:2]:
-        for language, line_starter in RIPLINES.items():
+        for language, line_starter in EAC_RIPLINES.items():
             if re.match(line_starter, line):
                 return language
 

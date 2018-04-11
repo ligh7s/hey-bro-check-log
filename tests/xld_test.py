@@ -46,7 +46,7 @@ def test_markup(filename):
     log = score_log(log_file)
 
     markup_path = os.path.join(os.path.dirname(__file__), 'logs', 'XLD',
-                               'Markup', '{}.markup'.format(filename))
+                               'markup', '{}.markup'.format(filename))
     with open(markup_path, 'r') as markup_file:
         markup_contents = markup_file.read()
 

@@ -4,3 +4,4 @@
 !.travis.yml
 __pycache__
 test_logs
+translation-files

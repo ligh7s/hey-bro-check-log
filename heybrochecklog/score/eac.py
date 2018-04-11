@@ -73,6 +73,9 @@ class EACChecker(LogChecker):
             for setting in burst_no_exist:
                 del settings[setting]
 
+        if log.has_deduction('Combined offset') and 'Drive offset' in settings:
+            del settings['Drive offset']
+
         super().evaluate_unmatched_settings(log, settings)
 
     def is_there_a_htoa(self, log):

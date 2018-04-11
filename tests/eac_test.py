@@ -65,7 +65,7 @@ def test_markup(filename):
     log = score_log(log_file)
 
     markup_path = os.path.join(
-        os.path.dirname(__file__), 'logs', 'EAC', 'Markup', '{}.markup'.format(filename))
+        os.path.dirname(__file__), 'logs', 'EAC', 'markup', '{}.markup'.format(filename))
     with open(markup_path, 'r') as markup_file:
         markup_contents = markup_file.read()
 
