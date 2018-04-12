@@ -1,0 +1,3 @@
+include heybrochecklog/resources/*
+include heybrochecklog/resources/eac/*
+include heybrochecklog/resources/eac95/*
