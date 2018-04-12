@@ -1,7 +1,7 @@
 """This module contains functions which parse lines for data."""
 
 import re
-from resources import VERSIONS
+from heybrochecklog.resources import VERSIONS
 from heybrochecklog import UnrecognizedException
 from heybrochecklog.shared import format_pattern as fmt_ptn
 

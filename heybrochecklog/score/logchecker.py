@@ -4,7 +4,7 @@ more specific log checkers.
 
 import re
 
-from resources import VERSIONS
+from heybrochecklog.resources import VERSIONS
 from heybrochecklog import UnrecognizedException
 from heybrochecklog.shared import format_pattern as fmt_ptn
 from heybrochecklog.score.modules import parsers, validation, drives

@@ -3,7 +3,7 @@
 
 import re
 from heybrochecklog import UnrecognizedException
-from resources import EAC_RIPLINES
+from heybrochecklog.resources import EAC_RIPLINES
 
 
 def analyze_log(log):

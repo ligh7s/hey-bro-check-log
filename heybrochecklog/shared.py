@@ -41,5 +41,5 @@ def open_json(*paths):
 
 
 def get_path():
-    """Get the filepath for the root package directory."""
-    return os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
+    """Get the filepath for the heybrochecklog package directory."""
+    return os.path.abspath(os.path.dirname(__file__))
