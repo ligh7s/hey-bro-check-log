@@ -17,6 +17,10 @@
             "Compression offset": ["Gebruik compressie-offset"],
             "Combined offset": ["Gecombineerde lees-/schrijf- offset correctie"]
         },
+        "proper settings": {
+            "Fill missing offset samples with silence": ["Ja"],
+            "Deleting silent blocks": ["Neen"]
+        },
         "range": ["Bereikstatus en fouten"],
         "track": ["Track"],
         "track settings": {

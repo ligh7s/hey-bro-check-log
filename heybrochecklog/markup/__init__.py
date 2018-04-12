@@ -2,6 +2,7 @@
 
 import re
 import html
+from heybrochecklog.shared import format_pattern as fmt_ptn
 from heybrochecklog.score.modules import parsers
 from heybrochecklog.markup.matches import (eac_track_matches, xld_track_matches, eac_footer_matches,
                                            xld_footer_matches, xld_ar_summary)
@@ -81,18 +82,18 @@ def settings(log, patterns):
     """Mark up the settings block."""
     for i, line in enumerate(log.full_contents[log.index_settings:log.index_toc]):
         i += log.index_settings
-        if line.startswith(patterns['settings']['Read mode']) and log.ripper == 'EAC95':
+        if re.match(fmt_ptn(patterns['settings']['Read mode']), line) and log.ripper == 'EAC95':
             log.full_contents[i] = style_95_read_mode(line, patterns)
             continue
         for key, value in patterns['settings'].items():
-            if line.lstrip().startswith(value):  # lstrip() for EAC95
+            if re.match(fmt_ptn(value), line.lstrip()):  # lstrip() for EAC95
                 class_ = 'bad' if log.has_deduction(key) else 'good'
                 log.full_contents[i] = style_setting(line, class_)
                 break
         else:
             if log.ripper in ['EAC', 'EAC95']:
                 for key, value in patterns['bad settings'].items():
-                    if line.lstrip().startswith(value):
+                    if re.match(fmt_ptn(value), line.lstrip()):
                         log.full_contents[i] = style_setting(line, 'bad')
                         break
                 else:

@@ -28,6 +28,10 @@ SAMPLEPATTERN = {
         'Compression offset': 1262,
         'Combined offset': 1255
     },
+    'proper settings': {
+        'Fill missing offset samples with silence': 15,
+        'Deleting silent blocks': 16
+    },
     'range': 1210,
     'track': 1226,
     'track settings': {

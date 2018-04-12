@@ -3,6 +3,7 @@
 import re
 from resources import VERSIONS
 from heybrochecklog import UnrecognizedException
+from heybrochecklog.shared import format_pattern as fmt_ptn
 
 
 def index_toc(log):
@@ -16,7 +17,7 @@ def index_toc(log):
 
 def get_track_number(log, index, track_word):
     """Get the track number from the header line of a track block."""
-    result = re.search(r'{} ([0-9]+)'.format(track_word), log.contents[index])
+    result = re.search(r'{} ([0-9]+)'.format(fmt_ptn(track_word)), log.contents[index])
     if result:
         return int(result.group(1))
     elif log.range:  # EAC range rip has no track number
@@ -36,7 +37,7 @@ def parse_settings(track_data, track_settings, line):
 def parse_accuraterip(log, ar_patterns, line):
     """Parse line for an AccurateRip result."""
     for status, re_accurip in ar_patterns:
-        result = re.search(re_accurip, line)
+        result = re.search(fmt_ptn(re_accurip), line)
         if result and result.lastindex == 1:
             log.accuraterip.append([status, result.group(1)])
         elif result and result.lastindex is None:
@@ -52,7 +53,8 @@ def parse_range_accuraterip(log, ar_rr_patterns):
 def parse_errors_eac(log, err_patterns, track_num, line):
     """Parse line of an EAC log for a ripping error."""
     for error, re_err in err_patterns:
-        if track_num not in log.track_errors[error] and re.match(r' ' + re_err, line):
+        if (track_num not in log.track_errors[error]
+                and re.match(r' ' + fmt_ptn(re_err), line)):
             log.track_errors[error].append(track_num)
 
 
@@ -60,14 +62,14 @@ def parse_errors_xld(log, err_patterns, track_num, line):
     """Parse line of a XLD log for a ripping error."""
     for error, re_err in err_patterns:
         if track_num not in log.track_errors[error]:
-            result = re.search(r' ' + re_err + r' : ([0-9]+)', line)
+            result = re.search(r' ' + fmt_ptn(re_err) + r' : ([0-9]+)', line)
             if result and result.group(1) != "0":
                 log.track_errors[error].append([track_num, int(result.group(1))])
 
 
 def parse_checksum(log, regex, imp_version, deduc_line):
     """Parse line(s) for presence of a checksum."""
-    re_checksum = re.compile(regex)
+    re_checksum = re.compile(fmt_ptn(regex))
     for line in log.contents[log.index_footer:]:
         if re_checksum.match(line):
             log.checksum = True

@@ -2,8 +2,9 @@
 
 import re
 from heybrochecklog.markup import markup
-from heybrochecklog.score.logchecker import LogChecker
 from heybrochecklog import UnrecognizedException
+from heybrochecklog.shared import format_pattern as fmt_ptn
+from heybrochecklog.score.logchecker import LogChecker
 from heybrochecklog.score.modules import parsers, validation
 
 
@@ -46,7 +47,7 @@ class XLDChecker(LogChecker):
 
     def check_cdr(self, log):
         """Check the log to see if CD-R is flagged."""
-        result = re.search(self.patterns['disc type'] + r' : (.*)', log.concat_contents[4])
+        result = re.search(fmt_ptn(self.patterns['disc type']) + r' : (.*)', log.concat_contents[4])
         if result:
             if result.group(1) == 'Pressed CD':
                 return
@@ -59,7 +60,7 @@ class XLDChecker(LogChecker):
 
     def all_range_index(self, log, line):
         """Match the Range Rip line in the log file."""
-        if log.all_tracks is None and re.match(self.patterns['All Tracks'], line):
+        if log.all_tracks is None and re.match(fmt_ptn(self.patterns['All Tracks']), line):
             return True
         return False
 
@@ -82,12 +83,12 @@ class XLDChecker(LogChecker):
         """Get track data for each track and check for errors."""
         tsettings = self.patterns['track settings']
         track_settings = {
-            'filename': re.compile(r'\s+' + tsettings['filename'] + r' : (.*?\/.*?\..*)'),
-            'pregap': re.compile(r'\s+' + tsettings['pregap'] + r' : ([0-9:\.]+)'),
-            'gain': re.compile(r'\s+' + tsettings['gain'] + r' : ([A-Za-z0-9\.-]+)'),
-            'peak': re.compile(r'\s+' + tsettings['peak'] + r' : ([0-9\.]+)'),
-            'test crc': re.compile(r'\s+' + tsettings['test crc'] + r' : ([A-Z0-9]{8})'),
-            'copy crc': re.compile(r'\s+' + tsettings['copy crc'] + r' : ([A-Z0-9]{8})')
+            'filename': re.compile(r'\s+' + fmt_ptn(tsettings['filename']) + r' : (.*?\/.*?\..*)'),
+            'pregap': re.compile(r'\s+' + fmt_ptn(tsettings['pregap']) + r' : ([0-9:\.]+)'),
+            'gain': re.compile(r'\s+' + fmt_ptn(tsettings['gain']) + r' : ([A-Za-z0-9\.-]+)'),
+            'peak': re.compile(r'\s+' + fmt_ptn(tsettings['peak']) + r' : ([0-9\.]+)'),
+            'test crc': re.compile(r'\s+' + fmt_ptn(tsettings['test crc']) + r' : ([A-Z0-9]{8})'),
+            'copy crc': re.compile(r'\s+' + fmt_ptn(tsettings['copy crc']) + r' : ([A-Z0-9]{8})')
         }
 
         if log.all_tracks:

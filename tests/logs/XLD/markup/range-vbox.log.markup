@@ -7,7 +7,7 @@ X Lossless Decoder version <span class="log1">20170729</span> (<span class="log1
 <span class="log5">Used drive </span>: <span class="badish">VBOX CD-ROM (revision 1.0) (not found in database)</span>
 <span class="log5">Media type </span>: <span class="good">Pressed CD</span>
 
-<span class="log5">Ripper mode             </span>: <span class="log4">XLD Secure Ripper</span>
+<span class="log5">Ripper mode             </span>: <span class="good">XLD Secure Ripper</span>
 <span class="log5">Disable audio cache     </span>: <span class="good">OK for the drive with a cache less than 1375KiB</span>
 <span class="log5">Make use of C2 pointers </span>: <span class="good">NO</span>
 <span class="log5">Read offset correction  </span>: <span class="good">6</span>

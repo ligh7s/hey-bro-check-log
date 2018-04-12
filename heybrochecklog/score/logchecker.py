@@ -6,6 +6,7 @@ import re
 
 from resources import VERSIONS
 from heybrochecklog import UnrecognizedException
+from heybrochecklog.shared import format_pattern as fmt_ptn
 from heybrochecklog.score.modules import parsers, validation, drives
 
 
@@ -27,22 +28,28 @@ class LogChecker:
 
     def get_drive(self, regex, line):
         """Get the name of the ripping drive used."""
-        re_drive = re.compile(self.patterns['drive'] + regex)
+        re_drive = re.compile(fmt_ptn(self.patterns['drive']) + regex)
         result = re_drive.match(line)
         if result:
             return result.group(1).strip()
         raise UnrecognizedException('Could not parse ripping drive')
 
-    def index_log(self, log):
+    def index_log(self, log, ninety_five=False):
         """Index key line numbers inside the log."""
+        if ninety_five:
+            read_mode = re.compile(re.sub(' +', ' ', fmt_ptn(self.translation['1234'])))
+        else:
+            read_mode = re.compile(fmt_ptn(self.patterns['settings']['Read mode']))
+        toc = re.compile(fmt_ptn(self.patterns['toc'])) if 'toc' in self.patterns else None
+
         for i, line in enumerate(log.contents):
-            if log.index_settings is None and re.match(self.patterns['settings']['Read mode'], line):
+            if log.index_settings is None and read_mode.match(line):
                 log.index_settings = i
-            elif log.index_toc is None and re.match(self.patterns['toc'], line):
+            elif log.index_toc is None and 'toc' in self.patterns and toc.match(line):
                 log.index_toc = i
             elif self.all_range_index(log, line):
                 self.all_range_index_action(log, i)
-            elif re.match(self.patterns['track'] + r' [0-9]+$', line):
+            elif re.match(fmt_ptn(self.patterns['track']) + r' [0-9]+$', line):
                 log.track_indices.append(i)
 
         self.validate_indices(log)
@@ -80,7 +87,7 @@ class LogChecker:
         # Compile regex beforehand
         settings = {}
         for key, setting in psettings.items():
-            settings[key] = re.compile(setting + r' : (.*)')
+            settings[key] = re.compile(fmt_ptn(setting) + r' : (.*)')
 
         # Iterate through line in the settings, and verify each setting in `sets` dict
         for line in log.contents[log.index_settings:log.index_toc]:
@@ -90,7 +97,7 @@ class LogChecker:
                     drives.eval_offset(log, result.group(1))
                     del settings[key]
                 elif result:
-                    if not re.search(proper_settings[key], result.group(1)):
+                    if not re.search(fmt_ptn(proper_settings[key]), result.group(1)):
                         log.add_deduction(key)
                     del settings[key]
                     break

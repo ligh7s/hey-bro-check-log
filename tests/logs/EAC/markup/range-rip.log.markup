@@ -1,6 +1,6 @@
 Exact Audio Copy <span class="log1">V1.0 beta 3</span> from <span class="log1">29. August 2011</span>
 
-<span class="good">EAC extraction logfile from <span class="log5">15. February 2013, 19:20</span></span>
+<span class="good">EAC <span class="log5">extraction logfile from 15. February 2013, 19:20</span></span>
 
 <span class="log4">ABBA / Waterloo</span>
 
@@ -44,7 +44,7 @@ bvstudio®&quot; %source%
        <span class="log4">11</span>  <strong>|</strong> <span class="log1">32:28.08</span> <strong>|</strong>  <span class="log1">3:10.25</span> <strong>|</strong>    <span class="log1">146108</span>    <strong>|</strong>   <span class="log1">160382</span>   
 
 
-<span class="badish">Range status and errors</span>
+R<span class="log5">ange status and errors</span>
 
 <span class="badish">Selected range</span>
 
@@ -62,17 +62,17 @@ bvstudio®&quot; %source%
  
 <span class="log4 log5">AccurateRip summary</span>
  
-<span class="good">Track  1  accurately ripped (confidence 7)  [63DA46C4]  (AR v2)</span>
-<span class="good">Track  2  accurately ripped (confidence 7)  [4334B581]  (AR v2)</span>
-<span class="good">Track  3  accurately ripped (confidence 7)  [BC9D2EB3]  (AR v2)</span>
-<span class="good">Track  4  accurately ripped (confidence 7)  [CA198833]  (AR v2)</span>
-<span class="good">Track  5  accurately ripped (confidence 7)  [EB74FD25]  (AR v2)</span>
-<span class="good">Track  6  accurately ripped (confidence 7)  [042E1875]  (AR v2)</span>
-<span class="good">Track  7  accurately ripped (confidence 7)  [1B18C99B]  (AR v2)</span>
-<span class="good">Track  8  accurately ripped (confidence 7)  [704684FF]  (AR v2)</span>
-<span class="good">Track  9  accurately ripped (confidence 7)  [7FBE3435]  (AR v2)</span>
-<span class="good">Track 10  accurately ripped (confidence 7)  [6D20FD41]  (AR v2)</span>
-<span class="good">Track 11  accurately ripped (confidence 7)  [0B021200]  (AR v2)</span>
+Track  1  accurately ripped (confidence 7)  [63DA46C4]  (AR v2)
+Track  2  accurately ripped (confidence 7)  [4334B581]  (AR v2)
+Track  3  accurately ripped (confidence 7)  [BC9D2EB3]  (AR v2)
+Track  4  accurately ripped (confidence 7)  [CA198833]  (AR v2)
+Track  5  accurately ripped (confidence 7)  [EB74FD25]  (AR v2)
+Track  6  accurately ripped (confidence 7)  [042E1875]  (AR v2)
+Track  7  accurately ripped (confidence 7)  [1B18C99B]  (AR v2)
+Track  8  accurately ripped (confidence 7)  [704684FF]  (AR v2)
+Track  9  accurately ripped (confidence 7)  [7FBE3435]  (AR v2)
+Track 10  accurately ripped (confidence 7)  [6D20FD41]  (AR v2)
+Track 11  accurately ripped (confidence 7)  [0B021200]  (AR v2)
  
 <span class="good">All tracks accurately ripped</span>
 
@@ -96,4 +96,4 @@ Track | CTDB Status
  11   | (3/3) Accurately ripped
 
 
-<span class="good">==== Log checksum 56FE14AFBBBB6D7A1267A708835A821133E15CC20911599A7B0AEF54B9C55DFD ====</span>
+==== Log checksum 56FE14AFBBBB6D7A1267A708835A821133E15CC20911599A7B0AEF54B9C55DFD ====

@@ -17,6 +17,10 @@
             "Compression offset": ["Utilisé offset de compression"],
             "Combined offset": ["Correction offset combiné lecture/écriture"]
         },
+        "proper settings": {
+            "Fill missing offset samples with silence": ["Oui"],
+            "Deleting silent blocks": ["Non"]
+        },
         "range": ["Propriétés États et Erreurs"],
         "track": ["Piste"],
         "track settings": {

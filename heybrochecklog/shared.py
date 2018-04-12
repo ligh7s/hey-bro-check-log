@@ -25,6 +25,12 @@ def get_log_encoding(log_file):
         return result['encoding'] if result['confidence'] > 0.7 else 'utf-8-sig'
 
 
+def format_pattern(pattern, append=None):
+    if append:
+        pattern = [p + append for p in pattern]
+    return '|'.join(pattern)
+
+
 def open_json(*paths):
     """Open the language JSON patterns file and return it."""
     basepath = get_path()

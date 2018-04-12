@@ -4,6 +4,7 @@ when marking up log files.
 
 import re
 import html
+from heybrochecklog.shared import format_pattern as fmt_ptn
 
 
 def eac_track_matches(translation):
@@ -78,17 +79,19 @@ def eac_footer_matches(translation):
     }
     matches = generate_match_type(translation, source, matches=matches, prepend='.+')
 
-    ar_prepend = r'{} +\d+ +'.format(translation['1290'])
-    source = {
-        'good': ['1277'],
-        'badish': ['1279'],
-        'bad': ['1276', '1278']
-    }
-    matches = generate_match_type(translation, source, matches=matches, prepend=ar_prepend,
-                                  append='.+')
+    if '1290' in translation:
+        ar_prepend = r'{} +\d+ +'.format(translation['1290'])
+        source = {
+            'good': ['1277'],
+            'badish': ['1279'],
+            'bad': ['1276', '1278']
+        }
+        matches = generate_match_type(translation, source, matches=matches, prepend=ar_prepend,
+                                      append='.+')
 
     # Checksum stuff
-    matches['good'].append('==== {} [0-9A-F]+ ===='.format(translation['1325']))
+    if '1325' in translation:
+        matches['good'].append('==== {} [0-9A-F]+ ===='.format(translation['1325']))
 
     # EAC HAS A TYPO FOR "NO ERRORS OCCURED" WTF
     if translation['1222'] == 'No errors occurred':
@@ -133,13 +136,14 @@ def generate_match_type(translation, source, matches=None, prepend='', append=''
         if match_type not in matches:
             matches[match_type] = []
         for line_id in source[match_type]:
-            match = prepend + re_paren(translation[line_id]) + append
-            matches[match_type].append(html.escape(match))
+            if line_id in translation:
+                match = prepend + re_paren(translation[line_id]) + append
+                matches[match_type].append(html.escape(match))
 
     return matches
 
 
 def re_paren(line):
     """Regex the comma. Quality docstring."""
-    line = re.sub(r'\(', r'\(', line)
+    line = re.sub(r'\(', r'\(', fmt_ptn(line))
     return re.sub(r'\)', r'\)', line)

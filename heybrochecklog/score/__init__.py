@@ -44,7 +44,7 @@ def score_wrapper(log):
         patterns = open_json('xld.json')
         logchecker = xld.XLDChecker(patterns)
     elif log.ripper == 'EAC95':
-        info_json = open_json('eac', '{}.json'.format(log.language))
+        info_json = open_json('eac95', '{}.json'.format(log.language))
         logchecker = eac95.EAC95Checker(info_json['patterns'], info_json['translation'])
 
     try:

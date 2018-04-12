@@ -7,7 +7,10 @@
             "Audio cache": ["Vider le cache audio"],
             "C2 pointers": ["Utiliser les pointeurs C2"],
             "Drive offset": ["Correction offset écriture"],
-            "Fill missing offset samples with silence": ["Remplacer les samples manquants par du silence"],
+            "Fill missing offset samples with silence": [
+                "Remplacer les samples manquants par du silence",
+                "Remplacer les Missing samples par du silence"
+            ],
             "Deleting silent blocks": ["Effacer les blocs silencieux situés en début et fin"],
             "Null samples": ["Échantillons null utilisés dans les calculs CRC"],
             "Gap handling": ["Traitement des intervalles"],
@@ -165,7 +168,10 @@
         "1261": ["44.100 Hz; 16 Bit; Stéréo"],
         "1262": ["Utilisé offset de compression :"],
         "1263": ["Autres options      :"],
-        "1264": ["Remplacer les samples manquants par du silence"],
+        "1264": [
+            "Remplacer les samples manquants par du silence",
+            "Remplacer les Missing samples par du silence"
+        ],
         "1265": ["Effacer les blocs silencieux situés en début et fin"],
         "1266": ["Normaliser à"],
         "1267": ["Interface native Win32 pour Win NT & 2000"],

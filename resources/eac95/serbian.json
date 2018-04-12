@@ -17,6 +17,10 @@
             "Compression offset": ["Koristi offset za kompresiju"],
             "Combined offset": ["Korekcija kombinovanog offset-a za èitanje/rezanje"]
         },
+        "proper settings": {
+            "Fill missing offset samples with silence": ["Da"],
+            "Deleting silent blocks": ["Ne"]
+        },
         "range": ["Status i greke opsega"],
         "track": ["Track"],
         "track settings": {

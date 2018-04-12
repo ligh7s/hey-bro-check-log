@@ -17,6 +17,10 @@
             "Compression offset": ["Ê¹ÓÃÑ¹ËõÆ«ÒÆ£º"],
             "Combined offset": ["×éºÏ¶ÁÐ´Æ«ÒÆÐ£Õý£º"]
         },
+        "proper settings": {
+            "Fill missing offset samples with silence": ["ÊÇ"],
+            "Deleting silent blocks": ["·ñ"]
+        },
         "range": ["·¶Î§×´Ì¬¼°´íÎó"],
         "track": ["Òô¹ì"],
         "track settings": {

@@ -17,6 +17,10 @@
             "Compression offset": ["Använd komprimerings-offset"],
             "Combined offset": ["Kombinerad läs/skriv offset-korrigering"]
         },
+        "proper settings": {
+            "Fill missing offset samples with silence": ["Ja"],
+            "Deleting silent blocks": ["Nej"]
+        },
         "range": ["Områdets status och fel"],
         "track": ["Spår"],
         "track settings": {

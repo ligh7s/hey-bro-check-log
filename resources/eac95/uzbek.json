@@ -17,6 +17,10 @@
             "Compression offset": ["Bu siquv offsetini ishlat"],
             "Combined offset": ["Birlashgan o'qish/yozish offset tuzatishi"]
         },
+        "proper settings": {
+            "Fill missing offset samples with silence": ["Ha"],
+            "Deleting silent blocks": ["Yo'q"]
+        },
         "range": ["Miqyos holati va xatolari"],
         "track": ["Trek"],
         "track settings": {

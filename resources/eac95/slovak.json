@@ -17,6 +17,10 @@
             "Compression offset": ["Pouitý offset komprimácie"],
             "Combined offset": ["Kombinovaná offsetová korekcia pre èítanie/zápis"]
         },
+        "proper settings": {
+            "Fill missing offset samples with silence": ["Áno"],
+            "Deleting silent blocks": ["Nie"]
+        },
         "range": ["Stav a chyby rozsahu"],
         "track": ["Stopa"],
         "track settings": {

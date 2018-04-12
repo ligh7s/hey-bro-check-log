@@ -13,7 +13,7 @@ for log_path in sys.argv[1:]:
 
     log = score_log(log_file)
     dir_, file_name = path.split(log_path)
-    output_path = path.join(dir_, 'Markup', file_name + '.markup')
+    output_path = path.join(dir_, 'markup', file_name + '.markup')
 
     with open(output_path, 'w') as output_file:
         output_file.write(log['contents'])

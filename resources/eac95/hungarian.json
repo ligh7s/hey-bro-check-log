@@ -17,6 +17,10 @@
             "Compression offset": ["Tömörítési offset használata"],
             "Combined offset": ["Kombinált olvasó/íróoffset javítás"]
         },
+        "proper settings": {
+            "Fill missing offset samples with silence": ["Igen"],
+            "Deleting silent blocks": ["Nem"]
+        },
         "range": ["Tartomány státusz és hiba"],
         "track": ["Track"],
         "track settings": {

@@ -17,6 +17,10 @@
             "Compression offset": ["Usar desplazamiento de compresión"],
             "Combined offset": ["Corrección de Desplazamiento de Lectura/Escritura combinadas"]
         },
+        "proper settings": {
+            "Fill missing offset samples with silence": ["Sí"],
+            "Deleting silent blocks": ["No"]
+        },
         "range": ["Gama de estados y errores"],
         "track": ["Pista"],
         "track settings": {

@@ -8,11 +8,6 @@ from heybrochecklog.analyze import analyze_log
 from heybrochecklog.shared import get_log_contents, open_json
 from heybrochecklog.logfile import LogFile
 
-# Lines which should be regexed instead of `x in y`.
-REGEXES = [
-    ['russian', '1309'],
-]
-
 
 def translate_log(log_file):
     """Initialize and capture all logs."""
@@ -63,9 +58,9 @@ def sub_english(log):
 
     # Compile all the regex now instead of repeating.
     for key, value in foreign.items():
-        if [log.language, key] not in REGEXES:  # Some are regex and shouldn't be escaped.
-            value = re.escape(value)
-        foreign[key] = re.compile(value, flags=re.IGNORECASE)
+        for i, v in enumerate(value):
+            value[i] = re.escape(v)
+        foreign[key] = re.compile('|'.join(value), flags=re.IGNORECASE)
 
     # Iterate through each line and find/replace each string.
     new_log = []
@@ -75,7 +70,8 @@ def sub_english(log):
         else:
             for key, regex in foreign.items():
                 if regex.search(line):
-                    line = regex.sub(english[key], line)
+                    for value in english[key]:
+                        line = regex.sub(value, line)
             new_log.append(line)
 
     re_space_settings(new_log)

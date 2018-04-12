@@ -2,8 +2,9 @@
 
 import re
 from heybrochecklog.markup import markup
-from heybrochecklog.score.logchecker import LogChecker
 from heybrochecklog import UnrecognizedException
+from heybrochecklog.shared import format_pattern as fmt_ptn
+from heybrochecklog.score.logchecker import LogChecker
 from heybrochecklog.score.modules import combined, parsers, validation
 
 
@@ -48,7 +49,7 @@ class EACChecker(LogChecker):
 
     def all_range_index(self, log, line):
         """Match the Range Rip line in the log file."""
-        if log.index_tracks is None and re.match(self.patterns['range'], line):
+        if log.index_tracks is None and re.match(fmt_ptn(self.patterns['range']), line):
             return True
         return False
 
@@ -61,7 +62,7 @@ class EACChecker(LogChecker):
         """Evaluate the instant -100 point deductions."""
         bad_settings = self.patterns['bad settings']
         for sett, pattern in bad_settings.items():
-            if pattern in line:
+            if re.match(fmt_ptn(pattern), line):
                 log.add_deduction(sett)
 
     def evaluate_unmatched_settings(self, log, settings):
@@ -69,7 +70,7 @@ class EACChecker(LogChecker):
         burst_no_exist = ['Accurate stream', 'Audio cache', 'C2 pointers']
         if log.has_deduction('Read mode'):
             if any(setting not in settings for setting in burst_no_exist):
-                raise UnrecognizedException('Invalid rip settings for a burst mode rip')
+                raise UnrecognizedException('Invalid rip settings for a burst/fast mode rip')
             for setting in burst_no_exist:
                 del settings[setting]
 
@@ -87,7 +88,7 @@ class EACChecker(LogChecker):
 
         for line in log.contents[log.index_tracks + 1:]:
             if line.strip():
-                result = re.search(self.patterns['htoa'], line)
+                result = re.search(fmt_ptn(self.patterns['htoa']), line)
                 if result:
                     log.htoa = True
                     log.htoa_index = log.toc[1][0] - 1
@@ -111,11 +112,11 @@ class EACChecker(LogChecker):
         """
         tsettings = self.patterns['track settings']
         track_settings = {
-            'filename': re.compile(r'\s+' + tsettings['filename'] + r' (.*)'),
-            'pregap': re.compile(r'\s+' + tsettings['pregap'] + r' ([0-9:\.]+)'),
-            'peak': re.compile(r'\s+' + tsettings['peak'] + r' ([0-9\.]+) %'),
-            'test crc': re.compile(r'\s+' + tsettings['test crc'] + r' ([A-Z0-9]{8})'),
-            'copy crc': re.compile(r'\s+' + tsettings['copy crc'] + r' ([A-Z0-9]{8})')
+            'filename': re.compile(r'\s+' + fmt_ptn(tsettings['filename']) + r' (.*)'),
+            'pregap': re.compile(r'\s+' + fmt_ptn(tsettings['pregap']) + r' ([0-9:\.]+)'),
+            'peak': re.compile(r'\s+' + fmt_ptn(tsettings['peak']) + r' ([0-9\.]+) %'),
+            'test crc': re.compile(r'\s+' + fmt_ptn(tsettings['test crc']) + r' ([A-Z0-9]{8})'),
+            'copy crc': re.compile(r'\s+' + fmt_ptn(tsettings['copy crc']) + r' ([A-Z0-9]{8})')
         }
 
         self.analyze_tracks(log, track_settings, parsers.parse_errors_eac)

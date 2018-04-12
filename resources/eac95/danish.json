@@ -17,6 +17,10 @@
             "Compression offset": ["Benyttet kompressions-forskydning"],
             "Combined offset": ["Kombineret læse/skrive forskydnings-korrektion"]
         },
+        "proper settings": {
+            "Fill missing offset samples with silence": ["Ja"],
+            "Deleting silent blocks": ["Nej"]
+        },
         "range": ["Status for område samt fejl"],
         "track": ["Spor"],
         "track settings": {
