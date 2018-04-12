@@ -36,6 +36,7 @@ def score_wrapper(log, markup=False):
         analyze_log(log)
     except UnrecognizedException as exception:
         log.unrecognized = str(exception)
+        log.full_contents = [html.escape(line) for line in log.full_contents]
         return log
 
     if log.ripper == 'EAC':
