@@ -2,13 +2,29 @@ class UnrecognizedException(Exception):
     pass
 
 
+import argparse  # noqa: E402
 from pathlib import Path  # noqa: E402
 from heybrochecklog.score import score_log  # noqa: E402
 from heybrochecklog.translate import translate_log  # noqa: E402
 
 
-def runner(args):
+def parse_args():
+    """Parse arguments."""
+    description = 'Tool to analyze, translate, and score a CD Rip Log.'
+
+    parser = argparse.ArgumentParser(description=description)
+    parser.add_argument('log', help='log file to check.', nargs='+')
+    parser.add_argument('-t', '--translate', help='translate a foreign log to English', action='store_true')
+    parser.add_argument('-m', '--markup', help='print the marked up version of the log after analyzing',
+                        action='store_true')
+    parser.add_argument('-s', '--score-only', help='Only print the score of the log.', action='store_true')
+
+    return parser.parse_args()
+
+
+def runner():
     """Main function to handle command line usage of the heybrochecklog package."""
+    args = parse_args()
     for log_path in args.log:
         log_file = Path(log_path)
         if not log_file.is_file():
