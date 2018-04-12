@@ -54,7 +54,7 @@ def sub_english(log):
     foreign = open_json('eac', '{}.json'.format(log.language))['translation']
 
     # Sort foreign lines from longest to shortest
-    foreign = OrderedDict(sorted(foreign.items(), key=lambda t: len(t[1]), reverse=True))
+    foreign = OrderedDict(sorted(foreign.items(), key=lambda t: len(t[1][0]), reverse=True))
 
     # Compile all the regex now instead of repeating.
     for key, value in foreign.items():
