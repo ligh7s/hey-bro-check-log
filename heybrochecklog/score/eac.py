@@ -28,7 +28,8 @@ class EACChecker(LogChecker):
             self.is_there_a_htoa(log)
             self.check_tracks(log)
             parsers.parse_checksum(log, self.patterns['checksum'], 'V1.0 beta 1', 'EAC <1.0')
-            markup(log, self.patterns, self.translation)
+            if self.markup:
+                markup(log, self.patterns, self.translation)
 
         main_log = combined.defragment(logs)
         validation.validate_track_count(main_log)

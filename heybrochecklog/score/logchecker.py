@@ -13,9 +13,10 @@ from heybrochecklog.score.modules import parsers, validation, drives
 class LogChecker:
     """The base log checker to be subclassed by more specific log checkers."""
 
-    def __init__(self, patterns, translation=None):
+    def __init__(self, patterns, translation=None, markup=False):
         self.patterns = patterns
         self.translation = translation
+        self.markup = markup
 
     def verify_version(self, regex, line, ripper):
         """Verify that the version of the log is legitimate."""

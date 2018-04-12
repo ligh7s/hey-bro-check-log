@@ -54,7 +54,7 @@ def test_scoring(filename, deductions):
 def test_markup(filename):
     log_path = os.path.join(os.path.dirname(__file__), 'logs', 'EAC95', filename)
     log_file = Path(log_path)
-    log = score_log(log_file)
+    log = score_log(log_file, markup=True)
 
     markup_path = os.path.join(os.path.dirname(__file__), 'logs', 'EAC95',
                                'markup', '{}.markup'.format(filename))

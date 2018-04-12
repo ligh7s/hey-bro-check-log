@@ -31,7 +31,8 @@ class XLDChecker(LogChecker):
         parsers.parse_checksum(log, self.patterns['checksum'], '20121222', 'XLD pre-142.2')
 
         self.deduct_and_score(log)
-        markup(log, self.patterns, self.translation)
+        if self.markup:
+            markup(log, self.patterns, self.translation)
 
         return log
 

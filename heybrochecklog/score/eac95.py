@@ -25,7 +25,8 @@ class EAC95Checker(LogChecker):
             self.index_log(log, ninety_five=True)
             self.evaluate_settings(log)
             self.check_tracks(log)
-            markup(log, self.patterns, self.translation)
+            if self.markup:
+                markup(log, self.patterns, self.translation)
 
         main_log = combined.defragment(logs, eac95=True)
         validation.validate_track_settings(main_log)
