@@ -32,6 +32,7 @@ setup(
     version='1.0',
     description='A python tool for evaluating and working with EAC/XLD CD rip logs.',
     long_description=long_description,
+    long_description_content_type='text/markdown/',
     license='GPLv3',
     author='lights',
     author_email='lights@tutanota.de',
