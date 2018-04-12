@@ -29,10 +29,10 @@ with open('README.md') as desc:
 
 setup(
     name='heybrochecklog',
-    version='1.2',
+    version='1.2.1',
     description='A python tool for evaluating and working with EAC/XLD CD rip logs.',
     long_description=long_description,
-    long_description_content_type='text/markdown/',
+    long_description_content_type='text/markdown',
     license='GPLv3',
     author='lights',
     author_email='lights@tutanota.de',
