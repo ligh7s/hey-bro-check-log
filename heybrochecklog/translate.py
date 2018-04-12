@@ -1,6 +1,7 @@
 """This module handles the log translation functionality of the heybrochecklog package."""
 
 import re
+import html
 from collections import OrderedDict
 
 from heybrochecklog import UnrecognizedException
@@ -35,14 +36,14 @@ def translate_wrapper(log):
     except UnrecognizedException as exception:
         return {
             'unrecognized': str(exception),
-            'log': ''.join(log.full_contents)
+            'log': ''.join([html.escape(line) for line in log.full_contents])
         }
 
     if log.language == 'english':
         return {
             'unrecognized': False,
             'language': 'english',
-            'log': ''.join(log.full_contents)
+            'log': ''.join([html.escape(line) for line in log.full_contents])
         }
 
     return sub_english(log)
@@ -80,7 +81,7 @@ def sub_english(log):
     return {
         'unrecognized': False,
         'language': log.language,
-        'log': new_log
+        'log': html.escape(new_log)
     }
 
 

@@ -1,5 +1,6 @@
 """This module handles the log scoring functionality of the heybrochecklog package."""
 
+import html
 from heybrochecklog import UnrecognizedException
 from heybrochecklog.analyze import analyze_log
 from heybrochecklog.shared import get_log_contents, open_json
@@ -51,5 +52,6 @@ def score_wrapper(log, markup=False):
         log = logchecker.check(log)
     except UnrecognizedException as exception:
         log.unrecognized = str(exception)
+        log.full_contents = [html.escape(line) for line in log.full_contents]
 
     return log

@@ -12,7 +12,7 @@ Used output format Internal WAV Routines
 Other options           : 
     Fill up missing offset samples with silence : Yes
     Delete leading and trailing silent blocks : No
-    Native Win32 interface for Win NT & 2000
+    Native Win32 interface for Win NT &amp; 2000
 
 
 Track  1
@@ -80,7 +80,7 @@ Track  8
      Copy OK
 
 Track  9
-     Filename D:\ftp\Musique\Morcheeba\Morcheeba - Big Calm - 1998\09_Diggin' a watery grave_Morcheeba.wav
+     Filename D:\ftp\Musique\Morcheeba\Morcheeba - Big Calm - 1998\09_Diggin&#x27; a watery grave_Morcheeba.wav
 
      Peak level 100.0 %
      Track quality 100.0 %
