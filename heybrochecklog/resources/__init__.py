@@ -41,7 +41,7 @@ DEDUCTIONS = {
     'CRC mismatch on HTOA extraction': ['CRC mismatch on HTOA extraction', 10],
     'Aborted copy': ['Aborted copy', 100],
     'CRC mismatch': ['CRC mismatch', 30],
-    'Timing error': ['Timing error', 30],
+    'Timing problem': ['Timing problem', 20],
     'Suspicious position': ['Suspicious position', 20],
     'Missing sample': ['Missing sample', 20],
     'Track gain': ['Track gain was not turned on', 1],

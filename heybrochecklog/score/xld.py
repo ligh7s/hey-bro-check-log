@@ -122,6 +122,6 @@ class XLDChecker(LogChecker):
         # capped at 10%.
         for error in log.track_errors:
             for each in log.track_errors[error]:
-                log.add_deduction(error, multiplier=each[1], track=each[0])
+                log.add_deduction(error, multiplier=each[1], track=each[0], cap_10=True)
 
         super().deduct_and_score(log)

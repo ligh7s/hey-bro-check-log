@@ -11,7 +11,7 @@ for log_path in sys.argv[1:]:
         print('{} does not exist.'.format(log_path))
         continue
 
-    log = score_log(log_file)
+    log = score_log(log_file, markup=True)
     dir_, file_name = path.split(log_path)
     output_path = path.join(dir_, 'markup', file_name + '.markup')
 

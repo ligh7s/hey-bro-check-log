@@ -29,7 +29,7 @@ with open('README.md') as desc:
 
 setup(
     name='heybrochecklog',
-    version='1.2.2',
+    version='1.2.3',
     description='A python tool for evaluating and working with EAC/XLD CD rip logs.',
     long_description=long_description,
     long_description_content_type='text/markdown',

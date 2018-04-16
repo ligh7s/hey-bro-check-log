@@ -45,6 +45,11 @@ LOGS = [
     ('burst.log', {
         'Read mode was not secure (-20 points)',
         'EAC <1.0 (no checksum)'}),
+    ('swedish-timing-problems.log', {
+        'Read mode was not secure (-20 points)',
+        'No checksum (-15 points)',
+        'Timing problem (-20 points)',
+        'CRC mismatch (3 occurrences) (-90 points)'}),
 ]
 
 
