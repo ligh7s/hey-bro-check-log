@@ -33,7 +33,7 @@ setup(
     description='A python tool for evaluating and working with EAC/XLD CD rip logs.',
     long_description=long_description,
     long_description_content_type='text/markdown',
-    license='GPLv3',
+    license='MIT',
     author='lights',
     author_email='lights@tutanota.de',
     url='https://github.com/ligh7s/hey-bro-check-log',
