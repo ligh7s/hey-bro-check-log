@@ -1,13 +1,13 @@
 """This module handles the log translation functionality of the heybrochecklog package."""
 
-import re
 import html
+import re
 from collections import OrderedDict
 
 from heybrochecklog import UnrecognizedException
 from heybrochecklog.analyze import analyze_log
-from heybrochecklog.shared import get_log_contents, open_json
 from heybrochecklog.logfile import LogFile
+from heybrochecklog.shared import get_log_contents, open_json
 
 
 def translate_log(log_file):

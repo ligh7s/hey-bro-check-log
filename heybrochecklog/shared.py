@@ -1,8 +1,9 @@
 """This module contains shared functions between the various top-level modules."""
 
-import os
-import json
 import codecs
+import json
+import os
+
 import chardet
 
 

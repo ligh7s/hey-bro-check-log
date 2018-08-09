@@ -5,9 +5,10 @@ database with information.
 """
 
 import os
-import sys
 import re
 import sqlite3
+import sys
+
 import requests
 
 

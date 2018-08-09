@@ -1,6 +1,8 @@
 import os
-import pytest
 from pathlib import Path
+
+import pytest
+
 from heybrochecklog.score import score_log
 
 """Lazy person not going to do full unit testing."""
@@ -26,6 +28,9 @@ LOGS = [
         'No checksum (-15 points)'}),
     ('cdr-multi-filename.log', {
         'CD-R detected; not a pressed CD'}),
+    ('xld-cdp.log', {
+        'Ripper mode was not XLD Secure Ripper (-100 points)',
+        'XLD pre-142.2 (no checksum)'}),
 ]
 
 

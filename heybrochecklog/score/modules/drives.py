@@ -1,11 +1,11 @@
 """This module contains the functions which deal with drives and offsets."""
 
-import re
 import os
+import re
 import sqlite3
 
-from heybrochecklog.shared import get_path
 from heybrochecklog import UnrecognizedException
+from heybrochecklog.shared import get_path
 
 
 def eval_offset(log, offset):

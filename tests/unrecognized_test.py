@@ -1,6 +1,8 @@
 import os
-import pytest
 from pathlib import Path
+
+import pytest
+
 from heybrochecklog.score import score_log
 
 LOGS = [

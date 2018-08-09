@@ -1,11 +1,12 @@
 """This module contains the EAC Log Checker."""
 
 import re
-from heybrochecklog.markup import markup
+
 from heybrochecklog import UnrecognizedException
-from heybrochecklog.shared import format_pattern as fmt_ptn
+from heybrochecklog.markup import markup
 from heybrochecklog.score.logchecker import LogChecker
 from heybrochecklog.score.modules import combined, parsers, validation
+from heybrochecklog.shared import format_pattern as fmt_ptn
 
 
 class EACChecker(LogChecker):

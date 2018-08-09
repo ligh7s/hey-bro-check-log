@@ -2,6 +2,7 @@
 """
 
 import re
+
 from heybrochecklog import UnrecognizedException
 from heybrochecklog.resources import EAC_RIPLINES
 

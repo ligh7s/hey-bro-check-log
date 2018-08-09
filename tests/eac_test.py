@@ -1,6 +1,8 @@
 import os
-import pytest
 from pathlib import Path
+
+import pytest
+
 from heybrochecklog.score import score_log
 
 LOGS = [
@@ -50,6 +52,31 @@ LOGS = [
         'No checksum (-15 points)',
         'Timing problem (-20 points)',
         'CRC mismatch (3 occurrences) (-90 points)'}),
+    ('bad-russian-099.log', {
+        'Audio cache not defeated (-10 points)',
+        'Combined read/write offset cannot be verified (-5 points)',
+        'Null samples were not used in CRC calculations (-1 points)',
+        'AccurateRip was not enabled (-5 points)',
+        'EAC <1.0 (no checksum)',
+        'Test & Copy was not used (-20 points)'}),
+    ('fast.log', {
+        'Read mode was not secure (-20 points)',
+        'Could not verify gap handling',
+        'Could not verify presence of ID3 tags',
+        'Range rip detected (-20 points)',
+        'AccurateRip was not enabled (-5 points)',
+        'No checksum (-15 points)',
+        'Test & Copy was not used (-20 points)'}),
+    ('spanish-log-extra-colons.log', {
+        'Audio cache not defeated (-10 points)',
+        'Gaps were not analyzed and appended (-10 points)',
+        'No checksum (-15 points)',
+        'Test & Copy was not used (-20 points)'}),
+    ('russian-range-rip-ar-issue.log', {
+        'Could not verify gap handling',
+        'Range rip detected (-20 points)',
+        'EAC <1.0 (no checksum)',
+        'Test & Copy was not used (-20 points)'}),
 ]
 
 

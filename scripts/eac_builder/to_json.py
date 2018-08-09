@@ -6,13 +6,14 @@ into a JSON for the log checker. The resultant .json is named after
 the first argument.
 """
 
-import os
-import sys
-import json
-import re
 import codecs
-import chardet
+import json
+import os
+import re
+import sys
 from pathlib import Path
+
+import chardet
 
 import constants
 import generators

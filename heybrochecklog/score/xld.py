@@ -1,11 +1,12 @@
 """This module contains the XLD Log Checker."""
 
 import re
-from heybrochecklog.markup import markup
+
 from heybrochecklog import UnrecognizedException
-from heybrochecklog.shared import format_pattern as fmt_ptn
+from heybrochecklog.markup import markup
 from heybrochecklog.score.logchecker import LogChecker
 from heybrochecklog.score.modules import parsers, validation
+from heybrochecklog.shared import format_pattern as fmt_ptn
 
 
 class XLDChecker(LogChecker):

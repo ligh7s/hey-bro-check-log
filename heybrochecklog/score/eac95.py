@@ -1,11 +1,12 @@
 """This module contains the EAC Version <=0.95 Log Checker."""
 
 import re
+
 from heybrochecklog import UnrecognizedException
-from heybrochecklog.shared import format_pattern as fmt_ptn
 from heybrochecklog.markup import markup
 from heybrochecklog.score.logchecker import LogChecker
 from heybrochecklog.score.modules import combined, drives, parsers, validation
+from heybrochecklog.shared import format_pattern as fmt_ptn
 
 
 class EAC95Checker(LogChecker):

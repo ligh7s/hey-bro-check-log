@@ -4,10 +4,10 @@ more specific log checkers.
 
 import re
 
-from heybrochecklog.resources import VERSIONS
 from heybrochecklog import UnrecognizedException
+from heybrochecklog.resources import VERSIONS
+from heybrochecklog.score.modules import drives, parsers, validation
 from heybrochecklog.shared import format_pattern as fmt_ptn
-from heybrochecklog.score.modules import parsers, validation, drives
 
 
 class LogChecker:
@@ -87,8 +87,9 @@ class LogChecker:
 
         # Compile regex beforehand
         settings = {}
+        colon = r' : (.*)' if log.language == 'english' else r'(?: :)? : (.*)'
         for key, setting in psettings.items():
-            settings[key] = re.compile(fmt_ptn(setting) + r' : (.*)')
+            settings[key] = re.compile(fmt_ptn(setting) + colon)
 
         # Iterate through line in the settings, and verify each setting in `sets` dict
         for line in log.contents[log.index_settings:log.index_toc]:

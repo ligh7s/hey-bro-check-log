@@ -1,6 +1,7 @@
 """This module contains the functions which deal with combined logs."""
 
 import re
+
 from heybrochecklog.logfile import LogFile
 
 

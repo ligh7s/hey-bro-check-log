@@ -3,6 +3,7 @@
 import sys
 from os import path
 from pathlib import Path
+
 from heybrochecklog.score import score_log
 
 for log_path in sys.argv[1:]:

@@ -1,8 +1,9 @@
 """This module contains functions which parse lines for data."""
 
 import re
-from heybrochecklog.resources import VERSIONS
+
 from heybrochecklog import UnrecognizedException
+from heybrochecklog.resources import VERSIONS
 from heybrochecklog.shared import format_pattern as fmt_ptn
 
 
@@ -38,8 +39,8 @@ def parse_accuraterip(log, ar_patterns, line):
     """Parse line for an AccurateRip result."""
     for status, re_accurip in ar_patterns:
         result = re.search(fmt_ptn(re_accurip), line)
-        if result and result.lastindex == 1:
-            log.accuraterip.append([status, result.group(1)])
+        if result and isinstance(result.lastindex, int) and result.lastindex >= 1:
+            log.accuraterip.append([status, result.group(result.lastindex)])
         elif result and result.lastindex is None:
             log.accuraterip.append([status, None])
 

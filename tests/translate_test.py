@@ -1,6 +1,8 @@
 import os
-import pytest
 from pathlib import Path
+
+import pytest
+
 from heybrochecklog.translate import translate_log
 
 LOGS = [

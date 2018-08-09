@@ -2,8 +2,9 @@
 when marking up log files.
 """
 
-import re
 import html
+import re
+
 from heybrochecklog.shared import format_pattern as fmt_ptn
 
 
