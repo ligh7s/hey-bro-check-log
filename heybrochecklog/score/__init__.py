@@ -1,11 +1,12 @@
 """This module handles the log scoring functionality of the heybrochecklog package."""
 
 import html
+
 from heybrochecklog import UnrecognizedException
 from heybrochecklog.analyze import analyze_log
-from heybrochecklog.shared import get_log_contents, open_json
 from heybrochecklog.logfile import LogFile
-from heybrochecklog.score import eac, xld, eac95
+from heybrochecklog.score import eac, eac95, xld
+from heybrochecklog.shared import get_log_contents, open_json
 
 
 def score_log(log_file, markup=False):
@@ -41,13 +42,17 @@ def score_wrapper(log, markup=False):
 
     if log.ripper == 'EAC':
         info_json = open_json('eac', '{}.json'.format(log.language))
-        logchecker = eac.EACChecker(info_json['patterns'], info_json['translation'], markup)
+        logchecker = eac.EACChecker(
+            info_json['patterns'], info_json['translation'], markup
+        )
     elif log.ripper == 'XLD':
         patterns = open_json('xld.json')
         logchecker = xld.XLDChecker(patterns, markup=markup)
     elif log.ripper == 'EAC95':
         info_json = open_json('eac95', '{}.json'.format(log.language))
-        logchecker = eac95.EAC95Checker(info_json['patterns'], info_json['translation'], markup)
+        logchecker = eac95.EAC95Checker(
+            info_json['patterns'], info_json['translation'], markup
+        )
 
     try:
         log = logchecker.check(log)

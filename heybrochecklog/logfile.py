@@ -40,7 +40,7 @@ class LogFile:
             "Suspicious position": [],
             "Missing samples": [],
             "Read error": [],
-            "Damaged sector count": []
+            "Damaged sector count": [],
         }
 
         # Lists of data for the log
@@ -64,7 +64,7 @@ class LogFile:
             return {
                 'unrecognized': self.unrecognized,
                 'flagged': self.flagged,
-                'contents': ''.join(self.full_contents)
+                'contents': ''.join(self.full_contents),
             }
 
         deductions = [deduction for deduction in self.deductions.values()]
@@ -77,10 +77,12 @@ class LogFile:
             'score': self.score,
             'version': self.version,
             'unrecognized': False,
-            'contents': ''.join(self.full_contents)
+            'contents': ''.join(self.full_contents),
         }
 
-    def add_deduction(self, deduction, multiplier=1, track=None, extra_phrase=None, cap_10=False):
+    def add_deduction(
+        self, deduction, multiplier=1, track=None, extra_phrase=None, cap_10=False
+    ):
         """Add a deduction to the log file."""
         name, score = self._get_deduction_from_dict(deduction)
         if score:
@@ -128,7 +130,10 @@ class LogFile:
 
 
 def format_full_contents(full_contents):
-    """Format raw contents by stripping spaces, blank lines, and filtering out unicode crap."""
+    """
+    Format raw contents by stripping spaces, blank lines, and filtering
+    out unicode crap.
+    """
     contents = [re.sub(r'\s+', ' ', l.rstrip()) for l in full_contents]
     contents = [re.sub('：', ':', l) for l in contents]
     contents = [re.sub('，', ', ', l) for l in contents]

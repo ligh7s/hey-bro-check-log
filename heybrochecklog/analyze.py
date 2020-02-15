@@ -1,4 +1,6 @@
-"""This module analyzes the log file and determines generic stuff like it's ripper and language, etc.
+"""
+This module analyzes the log file and determines generic stuff like
+it's ripper and language, etc.
 """
 
 import re
@@ -26,8 +28,8 @@ def get_ripper(contents):
     elif xld_regex.match(contents[0]):
         return 'XLD'
     else:
-        # Unfortunately, not all EAC <=0.95 logs are English, so a compiled multi-language ripper
-        # regex pattern is necessary.
+        # Unfortunately, not all EAC <=0.95 logs are English, so a compiled
+        # multi-language ripper regex pattern is necessary.
         re_95 = re.compile('|'.join(list(EAC_RIPLINES.values())))
         if re_95.match(contents[0]):
             return 'EAC95'
@@ -40,7 +42,9 @@ def determine_language(log):
     if log.ripper == 'XLD':
         return 'english'
 
-    useful_contents = [re.sub(r'\s+', ' ', l.rstrip()) for l in log.contents if l.strip()]
+    useful_contents = [
+        re.sub(r'\s+', ' ', l.rstrip()) for l in log.contents if l.strip()
+    ]
     for line in useful_contents[:2]:
         for language, line_starter in EAC_RIPLINES.items():
             if re.match(line_starter, line):

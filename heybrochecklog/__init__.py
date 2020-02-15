@@ -4,6 +4,7 @@ class UnrecognizedException(Exception):
 
 import argparse  # noqa: E402
 from pathlib import Path  # noqa: E402
+
 from heybrochecklog.score import score_log  # noqa: E402
 from heybrochecklog.translate import translate_log  # noqa: E402
 
@@ -14,10 +15,24 @@ def parse_args():
 
     parser = argparse.ArgumentParser(description=description)
     parser.add_argument('log', help='log file to check.', nargs='+')
-    parser.add_argument('-t', '--translate', help='translate a foreign log to English', action='store_true')
-    parser.add_argument('-m', '--markup', help='print the marked up version of the log after analyzing',
-                        action='store_true')
-    parser.add_argument('-s', '--score-only', help='Only print the score of the log.', action='store_true')
+    parser.add_argument(
+        '-t',
+        '--translate',
+        help='translate a foreign log to English',
+        action='store_true',
+    )
+    parser.add_argument(
+        '-m',
+        '--markup',
+        help='print the marked up version of the log after analyzing',
+        action='store_true',
+    )
+    parser.add_argument(
+        '-s',
+        '--score-only',
+        help='Only print the score of the log.',
+        action='store_true',
+    )
 
     return parser.parse_args()
 

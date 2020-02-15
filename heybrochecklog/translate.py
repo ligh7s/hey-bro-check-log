@@ -1,4 +1,7 @@
-"""This module handles the log translation functionality of the heybrochecklog package."""
+"""
+This module handles the log translation functionality of
+the heybrochecklog package
+."""
 
 import html
 import re
@@ -36,14 +39,14 @@ def translate_wrapper(log):
     except UnrecognizedException as exception:
         return {
             'unrecognized': str(exception),
-            'log': ''.join([html.escape(line) for line in log.full_contents])
+            'log': ''.join([html.escape(line) for line in log.full_contents]),
         }
 
     if log.language == 'english':
         return {
             'unrecognized': False,
             'language': 'english',
-            'log': ''.join([html.escape(line) for line in log.full_contents])
+            'log': ''.join([html.escape(line) for line in log.full_contents]),
         }
 
     return sub_english(log)
@@ -55,7 +58,9 @@ def sub_english(log):
     foreign = open_json('eac', '{}.json'.format(log.language))['translation']
 
     # Sort foreign lines from longest to shortest
-    foreign = OrderedDict(sorted(foreign.items(), key=lambda t: len(t[1][0]), reverse=True))
+    foreign = OrderedDict(
+        sorted(foreign.items(), key=lambda t: len(t[1][0]), reverse=True)
+    )
 
     # Compile all the regex now instead of repeating.
     for key, value in foreign.items():
@@ -81,14 +86,21 @@ def sub_english(log):
     return {
         'unrecognized': False,
         'language': log.language,
-        'log': html.escape(new_log)
+        'log': html.escape(new_log),
     }
 
 
 def re_space_settings(log):
     """Fix the spacing in the rip settings block."""
-    spacings = [24, 44, 32]  # Number of characters before colons in each block of settings.
-    end_of_blocks = ['Make use of C2 pointers', 'Gap handling']  # Last setting in blocks.
+    spacings = [
+        24,
+        44,
+        32,
+    ]  # Number of characters before colons in each block of settings.
+    end_of_blocks = [
+        'Make use of C2 pointers',
+        'Gap handling',
+    ]  # Last setting in blocks.
     index = 0
 
     for i, line in enumerate(log):

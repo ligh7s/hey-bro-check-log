@@ -7,9 +7,11 @@ def analyze_accuraterip(log):
     """Analyze the AccurateRip results in the log."""
     if log.accuraterip:
         for ar_result in log.accuraterip:
-            if (ar_result[0] != log.accuraterip[0][0]
-                    and (ar_result[1] is not None and log.accuraterip[0][1] is not None)
-                    and (int(ar_result[1]) >= 5 or int(log.accuraterip[0][1]) >= 5)):
+            if (
+                ar_result[0] != log.accuraterip[0][0]
+                and (ar_result[1] is not None and log.accuraterip[0][1] is not None)
+                and (int(ar_result[1]) >= 5 or int(log.accuraterip[0][1]) >= 5)
+            ):
                 log.add_deduction('AccurateRip discrepancies')
                 break
     elif any('copy crc' in data for tnum, data in log.tracks.items()):
@@ -48,11 +50,15 @@ def validate_track_settings(log, xld=False):
         if track in log.track_errors['Aborted copy']:
             pass
         elif not all(setting in log.tracks[track] for setting in required_settings):
-            raise UnrecognizedException('Unable to confirm presence of required track data')
+            raise UnrecognizedException(
+                'Unable to confirm presence of required track data'
+            )
 
     # Check for Test & Copy and CRC Mismatches
     if not all('test crc' in track for track in log.tracks.values()):
-        if log.has_deduction('HTOA extracted') or log.has_deduction('HTOA not ripped twice'):
+        if log.has_deduction('HTOA extracted') or log.has_deduction(
+            'HTOA not ripped twice'
+        ):
             # Verify that every track minus HTOA is T&C (Range based is index 0)
             if all('test crc' in track for i, track in log.tracks.items() if i):
                 return

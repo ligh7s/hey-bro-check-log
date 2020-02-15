@@ -13,21 +13,28 @@ EAC_RIPLINES = {
     'uzbek': 'EAC ajratish logfayli',
     'chinese': 'EAC 抓取日志文件从',
     'polish': 'Sprawozdanie ze zgrywania programem EAC z',
-    'czech': 'Protokol extrakce EAC z'
+    'czech': 'Protokol extrakce EAC z',
 }
 
 DEDUCTIONS = {
     'Read mode': {
         'XLD': ['Ripper mode was not XLD Secure Ripper', 100],
-        'Default': ['Read mode was not secure', 20]
+        'Default': ['Read mode was not secure', 20],
     },
     'Accurate stream': ['Accurate stream was not used', 20],
     'Audio cache': ['Audio cache not defeated', 10],
     'C2 pointers': ['C2 pointers were used', 20],
     'Drive offset': ['Incorrect read offset for drive', 5],
     'Combined offset': ['Combined read/write offset cannot be verified', 5],
-    'Zero offset': ['The drive could not be found in the database; however, an offset of 0 is rarely correct', 5],  # noqa E501
-    'Fill missing offset samples with silence': ['Missing offset samples not filled up with silence', 5],
+    'Zero offset': [
+        'The drive could not be found in the database; however, an offset '
+        'of 0 is rarely correct',
+        5,
+    ],  # noqa E501
+    'Fill missing offset samples with silence': [
+        'Missing offset samples not filled up with silence',
+        5,
+    ],
     'Deleting silent blocks': ['Deletes leading and trailing silent blocks', 5],
     'Null samples': ['Null samples were not used in CRC calculations', 1],
     'Gap handling': ['Gaps were not analyzed and appended', 10],
@@ -50,13 +57,17 @@ DEDUCTIONS = {
     'Checksum': ['No checksum', 15],
     'Virtual drive': ['Virtual drive was used', 100],
     'CD-R': ['CD-R detected; not a pressed CD', 0],
-    'AccurateRip discrepancies': ['AccurateRip discrepancies; rip may contain silent errors', None],
+    'AccurateRip discrepancies': [
+        'AccurateRip discrepancies; rip may contain silent errors',
+        None,
+    ],
     'Normalization': ['Destructive normalization used', 100],
-    'Compression offset': ['Ripped with compression offset', 100]
+    'Compression offset': ['Ripped with compression offset', 100],
 }
 
 VERSIONS = {
     'EAC': [
+        ('V1.4', '3. February 2020'),
         ('V1.3', '2. September 2016'),
         ('V1.2', '12. August 2016'),
         ('V1.1', '23. June 2015'),
@@ -71,9 +82,10 @@ VERSIONS = {
         ('V0.99 prebeta 3', '28. July 2007'),
         ('V0.99 prebeta 2', '28 July 2007'),
         ('V0.99 prebeta 1', '25. May 2007'),
-        ('EAC <=0.95', '1. April 1970')
+        ('EAC <=0.95', '1. April 1970'),
     ],
     'XLD': [
+        ('20191014', '152.0'),
         ('20181019', '151.1'),
         ('20170729', '150.3'),
         ('20170710', '150.2'),
@@ -204,6 +216,6 @@ VERSIONS = {
         ('20080921', '92.1'),
         ('20080916c', '91.3'),
         ('20080914a', '90.1'),
-        ('86.1', '20080907a')
-    ]
+        ('86.1', '20080907a'),
+    ],
 }

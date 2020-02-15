@@ -41,7 +41,11 @@ class LogChecker:
             read_mode = re.compile(re.sub(' +', ' ', fmt_ptn(self.translation['1234'])))
         else:
             read_mode = re.compile(fmt_ptn(self.patterns['settings']['Read mode']))
-        toc = re.compile(fmt_ptn(self.patterns['toc'])) if 'toc' in self.patterns else None
+        toc = (
+            re.compile(fmt_ptn(self.patterns['toc']))
+            if 'toc' in self.patterns
+            else None
+        )
 
         for i, line in enumerate(log.contents):
             if log.index_settings is None and read_mode.match(line):
@@ -92,7 +96,7 @@ class LogChecker:
             settings[key] = re.compile(fmt_ptn(setting) + colon)
 
         # Iterate through line in the settings, and verify each setting in `sets` dict
-        for line in log.contents[log.index_settings:log.index_toc]:
+        for line in log.contents[log.index_settings : log.index_toc]:
             for key, setting in list(settings.items()):
                 result = setting.search(line)
                 if result and key == 'Drive offset':
@@ -124,7 +128,9 @@ class LogChecker:
             elif key == 'Null samples':
                 log.add_deduction('Could not verify usage of null samples')
             else:
-                raise UnrecognizedException('One or more required settings could not be found')
+                raise UnrecognizedException(
+                    'One or more required settings could not be found'
+                )
 
     def analyze_tracks(self, log, track_settings, parse_errors, accuraterip=True):
         """Get track data for each track and check for errors."""
@@ -135,7 +141,7 @@ class LogChecker:
             track_data = {}
             track_num = parsers.get_track_number(log, index, self.patterns['track'])
 
-            for line in log.contents[log.track_indices[i]:log.track_indices[i + 1]]:
+            for line in log.contents[log.track_indices[i] : log.track_indices[i + 1]]:
                 # Collect the track data using the track_settings list.
                 parsers.parse_settings(track_data, track_settings, line)
                 # Log the AccurateRip results - add AR status to log.accuraterip list.
@@ -164,4 +170,6 @@ class LogChecker:
             log.add_deduction('CRC mismatch', len(log.crc_mismatch))
 
         # Sum all the deductions and calculate score
-        log.score -= sum([de[1] for de in log.deductions.values() if isinstance(de[1], int)])
+        log.score -= sum(
+            [de[1] for de in log.deductions.values() if isinstance(de[1], int)]
+        )

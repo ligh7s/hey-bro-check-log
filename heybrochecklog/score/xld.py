@@ -29,7 +29,9 @@ class XLDChecker(LogChecker):
         self.is_there_a_htoa(log)
         validation.validate_track_count(log)
         validation.validate_track_settings(log, xld=True)
-        parsers.parse_checksum(log, self.patterns['checksum'], '20121222', 'XLD pre-142.2')
+        parsers.parse_checksum(
+            log, self.patterns['checksum'], '20121222', 'XLD pre-142.2'
+        )
 
         self.deduct_and_score(log)
         if self.markup:
@@ -49,7 +51,9 @@ class XLDChecker(LogChecker):
 
     def check_cdr(self, log):
         """Check the log to see if CD-R is flagged."""
-        result = re.search(fmt_ptn(self.patterns['disc type']) + r' : (.*)', log.concat_contents[4])
+        result = re.search(
+            fmt_ptn(self.patterns['disc type']) + r' : (.*)', log.concat_contents[4],
+        )
         if result:
             if result.group(1) == 'Pressed CD':
                 return
@@ -62,7 +66,9 @@ class XLDChecker(LogChecker):
 
     def all_range_index(self, log, line):
         """Match the Range Rip line in the log file."""
-        if log.all_tracks is None and re.match(fmt_ptn(self.patterns['All Tracks']), line):
+        if log.all_tracks is None and re.match(
+            fmt_ptn(self.patterns['All Tracks']), line
+        ):
             return True
         return False
 
@@ -76,7 +82,7 @@ class XLDChecker(LogChecker):
         # appended to the first track. It is then split from the first track with
         # Audacity/Audition.
         if len(log.tracks) == 1 and log.toc[1][0] >= 450:
-            for line in log.contents[log.index_settings:log.index_toc]:
+            for line in log.contents[log.index_settings : log.index_toc]:
                 if re.match(r'Gap status +: Analyzed, Appended$', line):
                     log.add_deduction('HTOA extracted')
                     break
@@ -85,12 +91,22 @@ class XLDChecker(LogChecker):
         """Get track data for each track and check for errors."""
         tsettings = self.patterns['track settings']
         track_settings = {
-            'filename': re.compile(r'\s+' + fmt_ptn(tsettings['filename']) + r' : (.*?\/.*?\..*)'),
-            'pregap': re.compile(r'\s+' + fmt_ptn(tsettings['pregap']) + r' : ([0-9:\.]+)'),
-            'gain': re.compile(r'\s+' + fmt_ptn(tsettings['gain']) + r' : ([A-Za-z0-9\.-]+)'),
+            'filename': re.compile(
+                r'\s+' + fmt_ptn(tsettings['filename']) + r' : (.*?\/.*?\..*)'
+            ),
+            'pregap': re.compile(
+                r'\s+' + fmt_ptn(tsettings['pregap']) + r' : ([0-9:\.]+)'
+            ),
+            'gain': re.compile(
+                r'\s+' + fmt_ptn(tsettings['gain']) + r' : ([A-Za-z0-9\.-]+)'
+            ),
             'peak': re.compile(r'\s+' + fmt_ptn(tsettings['peak']) + r' : ([0-9\.]+)'),
-            'test crc': re.compile(r'\s+' + fmt_ptn(tsettings['test crc']) + r' : ([A-Z0-9]{8})'),
-            'copy crc': re.compile(r'\s+' + fmt_ptn(tsettings['copy crc']) + r' : ([A-Z0-9]{8})')
+            'test crc': re.compile(
+                r'\s+' + fmt_ptn(tsettings['test crc']) + r' : ([A-Z0-9]{8})'
+            ),
+            'copy crc': re.compile(
+                r'\s+' + fmt_ptn(tsettings['copy crc']) + r' : ([A-Z0-9]{8})'
+            ),
         }
 
         if log.all_tracks:
@@ -118,9 +134,9 @@ class XLDChecker(LogChecker):
         if not all('gain' in log.tracks[track] for track in log.tracks):
             log.add_deduction('Track gain')
 
-        # Deduct for accumulated per-track XLD deductions; since XLD accumulated deductions are
-        # deducted by an occurrence basis, we are splitting deductions into one deduction per track,
-        # capped at 10%.
+        # Deduct for accumulated per-track XLD deductions; since XLD
+        # accumulated deductions are deducted by an occurrence basis, we are
+        # splitting deductions into one deduction per track, capped at 10%.
         for error in log.track_errors:
             for each in log.track_errors[error]:
                 log.add_deduction(error, multiplier=each[1], track=each[0], cap_10=True)

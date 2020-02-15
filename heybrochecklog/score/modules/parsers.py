@@ -10,7 +10,7 @@ from heybrochecklog.shared import format_pattern as fmt_ptn
 def index_toc(log):
     """Index the ToC data of the log."""
     re_toc = re.compile(r' ([0-9]+) \| [0-9:\.]+ \| [0-9:\.]+ \| ([0-9]+) \| ([0-9]+)')
-    for line in log.contents[log.index_toc:log.index_tracks]:
+    for line in log.contents[log.index_toc : log.index_tracks]:
         result = re_toc.search(line)
         if result:
             log.toc[int(result.group(1))] = [int(result.group(2)), int(result.group(3))]
@@ -47,15 +47,16 @@ def parse_accuraterip(log, ar_patterns, line):
 
 def parse_range_accuraterip(log, ar_rr_patterns):
     """Parse range rip footer for AccurateRip results."""
-    for line in log.contents[log.index_footer:]:
+    for line in log.contents[log.index_footer :]:
         parse_accuraterip(log, ar_rr_patterns, line)
 
 
 def parse_errors_eac(log, err_patterns, track_num, line):
     """Parse line of an EAC log for a ripping error."""
     for error, re_err in err_patterns:
-        if (track_num not in log.track_errors[error]
-                and re.match(r' ' + fmt_ptn(re_err), line)):
+        if track_num not in log.track_errors[error] and re.match(
+            r' ' + fmt_ptn(re_err), line
+        ):
             log.track_errors[error].append(track_num)
 
 
@@ -71,7 +72,7 @@ def parse_errors_xld(log, err_patterns, track_num, line):
 def parse_checksum(log, regex, imp_version, deduc_line):
     """Parse line(s) for presence of a checksum."""
     re_checksum = re.compile(fmt_ptn(regex))
-    for line in log.contents[log.index_footer:]:
+    for line in log.contents[log.index_footer :]:
         if re_checksum.match(line):
             log.checksum = True
             break
@@ -82,7 +83,9 @@ def parse_checksum(log, regex, imp_version, deduc_line):
                 log_version = version
             if version[0] == imp_version:
                 imp_version = version
-        if VERSIONS[log.ripper].index(log_version) <= VERSIONS[log.ripper].index(imp_version):
+        if VERSIONS[log.ripper].index(log_version) <= VERSIONS[log.ripper].index(
+            imp_version
+        ):
             log.add_deduction('Checksum')
         else:
             log.add_deduction(deduc_line + ' (no checksum)')

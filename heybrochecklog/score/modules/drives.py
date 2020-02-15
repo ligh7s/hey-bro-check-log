@@ -37,7 +37,8 @@ def eval_offset(log, offset):
     if offset not in offsets:
         log.add_deduction(
             'Drive offset',
-            extra_phrase='correct offsets are: {}'.format(', '.join(offsets)))
+            extra_phrase='correct offsets are: {}'.format(', '.join(offsets)),
+        )
 
 
 def check_for_virtual_drives(log):

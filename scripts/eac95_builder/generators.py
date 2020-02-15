@@ -1,4 +1,7 @@
-"""This module contains the functions which generate the lines that get placed in the JSON."""
+"""
+This module contains the functions which generate the lines that get placed
+in the JSON.
+"""
 
 import re  # eeeeeeeeeeeeeeeeeeeee
 

@@ -67,7 +67,7 @@ class EAC95Checker(LogChecker):
             full_settings[key] = re.compile(fmt_ptn(regex) + ' : (.*)')
 
         # Iterate through line in the settings, and verify each setting in `settings` dict
-        for line in log.contents[log.index_settings:log.index_tracks]:
+        for line in log.contents[log.index_settings : log.index_tracks]:
             for key, setting in list(settings.items()):
                 result = setting.search(line)
                 if result:
@@ -124,11 +124,17 @@ class EAC95Checker(LogChecker):
             'filename': re.compile(r' ' + fmt_ptn(tsettings['filename']) + r' (.*)'),
             'pregap': re.compile(r' ' + fmt_ptn(tsettings['pregap']) + r' ([0-9:\.]+)'),
             'peak': re.compile(r' ' + fmt_ptn(tsettings['peak']) + r' ([0-9\.])+ %'),
-            'test crc': re.compile(r' ' + fmt_ptn(tsettings['test crc']) + r' ([A-Z0-9]{8})'),
-            'copy crc': re.compile(r' ' + fmt_ptn(tsettings['copy crc']) + r' ([A-Z0-9]{8})')
+            'test crc': re.compile(
+                r' ' + fmt_ptn(tsettings['test crc']) + r' ([A-Z0-9]{8})'
+            ),
+            'copy crc': re.compile(
+                r' ' + fmt_ptn(tsettings['copy crc']) + r' ([A-Z0-9]{8})'
+            ),
         }
 
-        self.analyze_tracks(log, track_settings, parsers.parse_errors_eac, accuraterip=False)
+        self.analyze_tracks(
+            log, track_settings, parsers.parse_errors_eac, accuraterip=False
+        )
 
     def evaluate_tracks(self, log):
         """Evaluate the analyzed track data for deficiencies."""

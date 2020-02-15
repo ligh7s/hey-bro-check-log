@@ -1,15 +1,21 @@
 """Mark up the log file with classes according to the regex."""
 
-import re
 import html
-from heybrochecklog.shared import format_pattern as fmt_ptn
+import re
+
+from heybrochecklog.markup.matches import (
+    eac_footer_matches,
+    eac_track_matches,
+    xld_ar_summary,
+    xld_footer_matches,
+    xld_track_matches,
+)
 from heybrochecklog.score.modules import parsers
-from heybrochecklog.markup.matches import (eac_track_matches, xld_track_matches, eac_footer_matches,
-                                           xld_footer_matches, xld_ar_summary)
+from heybrochecklog.shared import format_pattern as fmt_ptn
 
 VERSIONS = {
     'EAC': r'Exact Audio Copy (V.*) from (.*)',
-    'XLD': r'X Lossless Decoder version ([0-9abc]+) \(([0-9\.]+)\)'
+    'XLD': r'X Lossless Decoder version ([0-9abc]+) \(([0-9\.]+)\)',
 }
 
 
@@ -29,7 +35,9 @@ def header(log, translation):
     # If first line is a version line, style it.
     start_index = 0
     if log.ripper in VERSIONS:
-        log.full_contents[0] = substitute(log.full_contents[0], VERSIONS[log.ripper], 'log1')
+        log.full_contents[0] = substitute(
+            log.full_contents[0], VERSIONS[log.ripper], 'log1'
+        )
         start_index = 1  # No need to scan this line twice.
 
     if log.ripper == 'EAC' or log.ripper == 'EAC95':
@@ -38,13 +46,15 @@ def header(log, translation):
         re_time_line = 'XLD extraction logfile from'
 
     count = 1
-    for i, line in enumerate(log.full_contents[start_index:log.index_settings]):
+    for i, line in enumerate(log.full_contents[start_index : log.index_settings]):
         i += start_index
         # Style the extraction time line.
         if line.strip():
             if count == 1:
                 line = substitute(line, '{} (.*)'.format(re_time_line), 'log5')
-                log.full_contents[i] = substitute(line, '({}.*)'.format(re_time_line), 'good')
+                log.full_contents[i] = substitute(
+                    line, '({}.*)'.format(re_time_line), 'good'
+                )
                 count += 1
             # Style the Artist / Album string
             elif count == 2:
@@ -80,9 +90,12 @@ def cd_type(log, line):
 
 def settings(log, patterns):
     """Mark up the settings block."""
-    for i, line in enumerate(log.full_contents[log.index_settings:log.index_toc]):
+    for i, line in enumerate(log.full_contents[log.index_settings : log.index_toc]):
         i += log.index_settings
-        if re.match(fmt_ptn(patterns['settings']['Read mode']), line) and log.ripper == 'EAC95':
+        if (
+            re.match(fmt_ptn(patterns['settings']['Read mode']), line)
+            and log.ripper == 'EAC95'
+        ):
             log.full_contents[i] = style_95_read_mode(line, patterns)
             continue
         for key, value in patterns['settings'].items():
@@ -113,9 +126,13 @@ def toc(log):
     if log.ripper == 'XLD':  # XLD AR Summary block matches
         matches = xld_ar_summary()
 
-    re_toc_title = re.compile(r' +[^0-9]+ +\| +[^0-9]+ +\| +[^0-9]+ +\| +[^0-9]+ +\| +[^0-9]+ *$')
-    re_toc_entry = r' +[0-9]+ +\| +([0-9:\.]+) +\| +([0-9:\.]+) +\| +([0-9]+) +\| +([0-9]+) *$'
-    for i, line in enumerate(log.full_contents[log.index_toc:end_line]):
+    re_toc_title = re.compile(
+        r' +[^0-9]+ +\| +[^0-9]+ +\| +[^0-9]+ +\| +[^0-9]+ +\| +[^0-9]+ *$'
+    )
+    re_toc_entry = (
+        r' +[0-9]+ +\| +([0-9:\.]+) +\| +([0-9:\.]+) +\| +([0-9]+) +\| +([0-9]+) *$'
+    )
+    for i, line in enumerate(log.full_contents[log.index_toc : end_line]):
         i += log.index_toc
         if re_toc_title.match(line):
             log.full_contents[i] = sub_strong(line, '(.*)')
@@ -129,7 +146,9 @@ def toc(log):
             for class_ in matches:
                 for element in matches[class_]:
                     if re.match(element, line.lstrip()):
-                        log.full_contents[i] = substitute(line, '({})'.format(element), class_)
+                        log.full_contents[i] = substitute(
+                            line, '({})'.format(element), class_
+                        )
 
 
 def tracks(log, patterns, translation):
@@ -143,21 +162,29 @@ def tracks(log, patterns, translation):
 def xld_tracks(log, patterns):
     """XLD tracks."""
     matches = xld_track_matches()
-    indices = [log.all_tracks] + log.track_indices if log.all_tracks else log.track_indices
+    indices = (
+        [log.all_tracks] + log.track_indices if log.all_tracks else log.track_indices
+    )
 
     for i, index in enumerate(indices):
-        track_num, log.full_contents[index] = track_number(log, index, patterns['track'])
-        for j, line in enumerate(log.full_contents[indices[i]:indices[i + 1]]):
+        track_num, log.full_contents[index] = track_number(
+            log, index, patterns['track']
+        )
+        for j, line in enumerate(log.full_contents[indices[i] : indices[i + 1]]):
             j += indices[i]
             for match in matches['full_line']:
                 if re.match(match[1], line.lstrip()):
-                    log.full_contents[j] = substitute(line, '({}.*)'.format(match[1]), match[0])
+                    log.full_contents[j] = substitute(
+                        line, '({}.*)'.format(match[1]), match[0]
+                    )
                     break
             else:
                 for match in matches['crc']:
                     if re.match(match + ' +:', line.lstrip()) and track_num:
                         track = log.tracks[track_num]
-                        log.full_contents[j] = sub_crc(track, match, line, xld_colon=True)
+                        log.full_contents[j] = sub_crc(
+                            track, match, line, xld_colon=True
+                        )
                         break
                 else:
                     found = False
@@ -170,8 +197,9 @@ def xld_tracks(log, patterns):
                         if found:
                             break
                     else:
-                        log.full_contents[j] = style_setting(line, 'log3', first_class='log4',
-                                                             include_colon=True)
+                        log.full_contents[j] = style_setting(
+                            line, 'log3', first_class='log4', include_colon=True
+                        )
 
         if indices[i + 1] == max(indices):
             break
@@ -182,18 +210,26 @@ def eac_tracks(log, patterns, translation):
     matches = eac_track_matches(translation)
 
     for i, index in enumerate(log.track_indices):
-        track_num, log.full_contents[index] = track_number(log, index, patterns['track'])
-        for j, line in enumerate(log.full_contents[log.track_indices[i]:log.track_indices[i + 1]]):
+        track_num, log.full_contents[index] = track_number(
+            log, index, patterns['track']
+        )
+        for j, line in enumerate(
+            log.full_contents[log.track_indices[i] : log.track_indices[i + 1]]
+        ):
             j += log.track_indices[i]
             for element in matches['log4']:
                 if re.match(element, line.lstrip()):
                     line = substitute(line, ' +{} +(.*)'.format(element), 'log3')
-                    log.full_contents[j] = substitute(line, ' +({}.+)'.format(element), 'log4')
+                    log.full_contents[j] = substitute(
+                        line, ' +({}.+)'.format(element), 'log4'
+                    )
                     break
             for class_ in ['good', 'badish', 'bad', 'log3']:
                 for element in matches[class_]:
                     if re.match(element, line.lstrip()):
-                        log.full_contents[j] = substitute(line, ' *({}.*)'.format(element), class_)
+                        log.full_contents[j] = substitute(
+                            line, ' *({}.*)'.format(element), class_
+                        )
                         break
             for element in matches['crc']:
                 if re.match(element, line.lstrip()):
@@ -208,7 +244,9 @@ def track_number(log, index, track_pattern):
     if log.all_tracks and log.full_contents[index].startswith('All Tracks'):
         return (0, substitute(log.full_contents[index], '(.*)', 'log5'))
     track_num = parsers.get_track_number(log, index, track_pattern)
-    line = substitute(log.full_contents[index], r'{} +(\d+)'.format(track_pattern), 'log4 log1')
+    line = substitute(
+        log.full_contents[index], r'{} +(\d+)'.format(track_pattern), 'log4 log1'
+    )
     line = substitute(line, '({}.+)'.format(track_pattern), 'log5')
     return (track_num, line)
 
@@ -229,19 +267,25 @@ def sub_crc(track, element, line, xld_colon=False):
 
 def footer(log, translation):
     """Mark up the footer."""
-    matches = xld_footer_matches() if log.ripper == 'XLD' else eac_footer_matches(translation)
+    matches = (
+        xld_footer_matches() if log.ripper == 'XLD' else eac_footer_matches(translation)
+    )
 
-    for i, line in enumerate(log.full_contents[log.index_footer:]):
+    for i, line in enumerate(log.full_contents[log.index_footer :]):
         i += log.index_footer
         for class_ in matches:
             for element in matches[class_]:
                 if re.match(element, line.lstrip()):
-                    log.full_contents[i] = substitute(line, '({})'.format(element), class_)
+                    log.full_contents[i] = substitute(
+                        line, '({})'.format(element), class_
+                    )
                     break
             if log.ripper == 'XLD':
                 # XLD Checksum stuff goes here
                 if line.startswith('-----BEGIN XLD SIGNATURE-----'):
-                    log.full_contents[i] = '<span class="good">-----BEGIN XLD SIGNATURE-----\n'
+                    log.full_contents[
+                        i
+                    ] = '<span class="good">-----BEGIN XLD SIGNATURE-----\n'
                 elif line.startswith('-----END XLD SIGNATURE-----'):
                     log.full_contents[i] = '-----END XLD SIGNATURE-----</span>'
 
@@ -250,7 +294,9 @@ def style_setting(line, class_, first_class='log5', include_colon=False):
     """Style a setting line in the log (<setting_name> +: <setting>)."""
     if re.match(r'.+:.+', line):
         parts = line.split(':', 1)
-        setting = re.escape(parts[0].lstrip() + ':' if include_colon else parts[0].lstrip())
+        setting = re.escape(
+            parts[0].lstrip() + ':' if include_colon else parts[0].lstrip()
+        )
         data = '({})'.format(re.escape(parts[1].strip()))
         line = substitute(line, '({})'.format(setting), first_class)
         line = substitute(line, data, class_)
@@ -288,11 +334,18 @@ def style_95_read_mode(line, patterns):
     parts[1:] = [part.strip() for part in parts[1].split(',')]
     num = 0
     p = patterns['95 settings']
-    for setting in [p['Read mode'], p['C2 pointers'], p['Accurate stream'], p['Audio cache']]:
+    for setting in [
+        p['Read mode'],
+        p['C2 pointers'],
+        p['Accurate stream'],
+        p['Audio cache'],
+    ]:
         if num == len(parts):
             break
         class_ = 'good' if setting in line else 'bad'
-        line = line.replace(parts[num], '<span class="{}">{}</span>'.format(class_, parts[num]), 1)
+        line = line.replace(
+            parts[num], '<span class="{}">{}</span>'.format(class_, parts[num]), 1
+        )
         num += 1
 
     return line
@@ -303,7 +356,9 @@ def substitute(line, regex, class_):
     result = re.search(regex, line)
     if result:
         for match in result.groups():
-            line = line.replace(match, '<span class="{}">{}</span>'.format(class_, match), 1)
+            line = line.replace(
+                match, '<span class="{}">{}</span>'.format(class_, match), 1
+            )
     return line
 
 
@@ -318,13 +373,16 @@ def sub_strong(line, regex):
 
 def sub_toc(line):
     """Substitute the HTML markup into a line of the TOC."""
-    return re.sub(r'([0-9]+)( +)\|( +)([0-9:\.]+)( +)\|( +)([0-9:\.]+)( +)\|( +)'
-                  r'([0-9]+)( +)\|( +)([0-9]+)',
-                  r'<span class="log4">\1</span>\2<strong>|</strong>'
-                  r'\3<span class="log1">\4</span>\5<strong>|</strong>'
-                  r'\6<span class="log1">\7</span>\8<strong>|</strong>'
-                  r'\9<span class="log1">\10</span>\11<strong>|</strong>'
-                  r'\12<span class="log1">\13</span>', line)
+    return re.sub(
+        r'([0-9]+)( +)\|( +)([0-9:\.]+)( +)\|( +)([0-9:\.]+)( +)\|( +)'
+        r'([0-9]+)( +)\|( +)([0-9]+)',
+        r'<span class="log4">\1</span>\2<strong>|</strong>'
+        r'\3<span class="log1">\4</span>\5<strong>|</strong>'
+        r'\6<span class="log1">\7</span>\8<strong>|</strong>'
+        r'\9<span class="log1">\10</span>\11<strong>|</strong>'
+        r'\12<span class="log1">\13</span>',
+        line,
+    )
 
 
 def re_paren(line):

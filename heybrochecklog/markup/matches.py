@@ -13,16 +13,16 @@ def eac_track_matches(translation):
     source_one = {
         'log4': ['1269', '1270', '1217', '1299', '1227', '1218'],
         'good': ['1220', '1281'],
-        'crc': ['1271', '1272']
+        'crc': ['1271', '1272'],
     }
     source_two = {
         'log3': ['1221'],
         'badish': ['1330', '1283', '1210', '1211'],
-        'bad': ['1212', '1213', '1214', '1215', '1216', '1228']
+        'bad': ['1212', '1213', '1214', '1215', '1216', '1228'],
     }
     return {
         **generate_match_type(translation, source_one),
-        **generate_match_type(translation, source_two, append='.*')
+        **generate_match_type(translation, source_two, append='.*'),
     }
 
 
@@ -36,18 +36,15 @@ def xld_track_matches():
             ['bad', '-&gt;Rip may not be accurate'],
             ['bad', 'List of damaged sector positions +:'],
             ['badish', r'\(\d+\) \d{2}:\d{2}:\d{2}'],
-            ['log3', r'\/.+\.(?:[Ff][Ll][Aa][Cc]|[Ww][Aa][Vv]|[Mm][Pp]3|[Aa][Aa][Cc])']
+            ['log3', r'\/.+\.(?:[Ff][Ll][Aa][Cc]|[Ww][Aa][Vv]|[Mm][Pp]3|[Aa][Aa][Cc])'],
         ],
-        'crc': [
-            r'CRC32 hash \(test run\)',
-            'CRC32 hash'
-        ],
+        'crc': [r'CRC32 hash \(test run\)', 'CRC32 hash'],
         'statistics': {
             'bad': [
                 'Read error',
                 r'Skipped \(treated as error\)',
                 'Inconsistency in error sectors',
-                'Damaged sector count'
+                'Damaged sector count',
             ],
             'badish': [
                 r'Jitter error \(maybe fixed\)',
@@ -56,9 +53,9 @@ def xld_track_matches():
                 r'Atom jitter error \(maybe fixed\)',
                 r'Drift error \(maybe fixed\)',
                 r'Dropped bytes error \(maybe fixed\)',
-                r'Duplicated bytes error \(maybe fixed\)'
-            ]
-        }
+                r'Duplicated bytes error \(maybe fixed\)',
+            ],
+        },
     }
 
 
@@ -68,27 +65,20 @@ def eac_footer_matches(translation):
         'good': ['1336', '1222', '1225'],
         'badish': ['1333', '1334', '1344', '1335'],
         'bad': ['1284', '1224'],
-        'log4 log5': ['1275']
+        'log4 log5': ['1275'],
     }
     matches = generate_match_type(translation, source)
 
     # AccurateRip stuff
-    source = {
-        'good': ['1340'],
-        'badish': ['1339', '1341'],
-        'bad': ['1342', '1343']
-    }
+    source = {'good': ['1340'], 'badish': ['1339', '1341'], 'bad': ['1342', '1343']}
     matches = generate_match_type(translation, source, matches=matches, prepend='.+')
 
     if '1290' in translation:
         ar_prepend = r'{} +\d+ +'.format(translation['1290'])
-        source = {
-            'good': ['1277'],
-            'badish': ['1279'],
-            'bad': ['1276', '1278']
-        }
-        matches = generate_match_type(translation, source, matches=matches, prepend=ar_prepend,
-                                      append='.+')
+        source = {'good': ['1277'], 'badish': ['1279'], 'bad': ['1276', '1278']}
+        matches = generate_match_type(
+            translation, source, matches=matches, prepend=ar_prepend, append='.+'
+        )
 
     # Checksum stuff
     if '1325' in translation:
@@ -104,13 +94,8 @@ def eac_footer_matches(translation):
 def xld_footer_matches():
     """Matches for the XLD footer block."""
     return {
-        'good': [
-            'No errors occurred',
-            'End of status report'
-        ],
-        'badish': [
-            'Some inconsistencies found'
-        ]
+        'good': ['No errors occurred', 'End of status report'],
+        'badish': ['Some inconsistencies found'],
     }
 
 
@@ -119,14 +104,14 @@ def xld_ar_summary():
     return {
         'good': [
             r'Track \d+ : OK.+',
-            html.escape('-&gt;All tracks accurately ripped.*')
+            html.escape('-&gt;All tracks accurately ripped.*'),
         ],
         'badish': [
             r'Track \d+ : NG.+',
             'Disc not found in AccurateRip DB',
-            r'-&gt;\d+ tracks? accurately ripped, \d+ tracks? not'
+            r'-&gt;\d+ tracks? accurately ripped, \d+ tracks? not',
         ],
-        'log4 log5': ['AccurateRip Summary']
+        'log4 log5': ['AccurateRip Summary'],
     }
 
 

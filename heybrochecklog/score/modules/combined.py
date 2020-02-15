@@ -12,13 +12,21 @@ def split_combined(log):
     logs = []
 
     # Create a list of indices for combined log markers. By default # includes indices 0 and len()
-    log_indices = [0] \
-        + [i + 2 for i, line in enumerate(log.full_contents) if re.match(r'-{60}', line)] \
+    log_indices = (
+        [0]
+        + [
+            i + 2
+            for i, line in enumerate(log.full_contents)
+            if re.match(r'-{60}', line)
+        ]
         + [len(log.full_contents)]
+    )
 
     # Split the log files. Create new log object for each log.
     for i, line in enumerate(log_indices):
-        new_log = LogFile(log.full_contents[line:(log_indices[i + 1])], ripper=log.ripper)
+        new_log = LogFile(
+            log.full_contents[line : (log_indices[i + 1])], ripper=log.ripper
+        )
         logs.append(new_log)
 
         # Return the array of logs if the end index of section is
@@ -83,7 +91,9 @@ def sub_settings(logs, log):
 def sub_double_copy(logs, log):
     """Check two copy only rips and score as T&C Rip."""
     if logs[0].has_deduction('Test & Copy') and len(logs[0].tracks) == len(log.tracks):
-        for new_track, original_track in zip(log.tracks.values(), logs[0].tracks.values()):
+        for new_track, original_track in zip(
+            log.tracks.values(), logs[0].tracks.values()
+        ):
             if 'copy crc' in new_track and 'copy crc' in original_track:
                 if new_track['copy crc'] != original_track['copy crc']:
                     break
@@ -125,8 +135,11 @@ def analyze_htoa(logs, htoa_logs):
     logs = [log for log in logs if log not in htoa_logs]
 
     if len(htoa_logs) >= 2:
-        matches = [log for log in htoa_logs[1:] if log.tracks[0]['copy crc'] ==
-                   htoa_logs[0].tracks[0]['copy crc']]
+        matches = [
+            log
+            for log in htoa_logs[1:]
+            if log.tracks[0]['copy crc'] == htoa_logs[0].tracks[0]['copy crc']
+        ]
         if not matches:
             htoa_logs[0].add_deduction('CRC mismatch on HTOA extraction')
     elif len(htoa_logs) == 1:

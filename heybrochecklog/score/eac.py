@@ -28,7 +28,9 @@ class EACChecker(LogChecker):
             parsers.index_toc(log)
             self.is_there_a_htoa(log)
             self.check_tracks(log)
-            parsers.parse_checksum(log, self.patterns['checksum'], 'V1.0 beta 1', 'EAC <1.0')
+            parsers.parse_checksum(
+                log, self.patterns['checksum'], 'V1.0 beta 1', 'EAC <1.0'
+            )
             if self.markup:
                 markup(log, self.patterns, self.translation)
 
@@ -72,7 +74,9 @@ class EACChecker(LogChecker):
         burst_no_exist = ['Accurate stream', 'Audio cache', 'C2 pointers']
         if log.has_deduction('Read mode'):
             if any(setting not in settings for setting in burst_no_exist):
-                raise UnrecognizedException('Invalid rip settings for a burst/fast mode rip')
+                raise UnrecognizedException(
+                    'Invalid rip settings for a burst/fast mode rip'
+                )
             for setting in burst_no_exist:
                 del settings[setting]
 
@@ -88,14 +92,15 @@ class EACChecker(LogChecker):
         if log.toc[1][0] < 450 or not log.range:
             return
 
-        for line in log.contents[log.index_tracks + 1:]:
+        for line in log.contents[log.index_tracks + 1 :]:
             if line.strip():
                 result = re.search(fmt_ptn(self.patterns['htoa']), line)
                 if result:
                     log.htoa = True
                     log.htoa_index = log.toc[1][0] - 1
 
-                    # Remove the gap handling notification (doesn't appear for range rips)
+                    # Remove the gap handling notification (doesn't appear for
+                    # range rips)
                     if log.has_deduction('Could not verify gap handling'):
                         log.remove_deduction('Could not verify gap handling')
 
@@ -115,10 +120,16 @@ class EACChecker(LogChecker):
         tsettings = self.patterns['track settings']
         track_settings = {
             'filename': re.compile(r'\s+' + fmt_ptn(tsettings['filename']) + r' (.*)'),
-            'pregap': re.compile(r'\s+' + fmt_ptn(tsettings['pregap']) + r' ([0-9:\.]+)'),
+            'pregap': re.compile(
+                r'\s+' + fmt_ptn(tsettings['pregap']) + r' ([0-9:\.]+)'
+            ),
             'peak': re.compile(r'\s+' + fmt_ptn(tsettings['peak']) + r' ([0-9\.]+) %'),
-            'test crc': re.compile(r'\s+' + fmt_ptn(tsettings['test crc']) + r' ([A-Z0-9]{8})'),
-            'copy crc': re.compile(r'\s+' + fmt_ptn(tsettings['copy crc']) + r' ([A-Z0-9]{8})')
+            'test crc': re.compile(
+                r'\s+' + fmt_ptn(tsettings['test crc']) + r' ([A-Z0-9]{8})'
+            ),
+            'copy crc': re.compile(
+                r'\s+' + fmt_ptn(tsettings['copy crc']) + r' ([A-Z0-9]{8})'
+            ),
         }
 
         self.analyze_tracks(log, track_settings, parsers.parse_errors_eac)
