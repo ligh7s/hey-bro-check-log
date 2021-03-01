@@ -67,6 +67,8 @@ DEDUCTIONS = {
 
 VERSIONS = {
     'EAC': [
+        ('V1.6', '23. October 2020'),
+        ('V1.5', '20. February 2020'),
         ('V1.4', '3. February 2020'),
         ('V1.3', '2. September 2016'),
         ('V1.2', '12. August 2016'),
